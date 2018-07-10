@@ -1,0 +1,55 @@
+.map {
+	display: none;
+	height: 98%;
+	left: 1%;
+	margin: 0;
+	position: fixed;
+	top: 1%;
+	width: 98%;
+}
+.map .options {
+	position: absolute;
+    right: 0;
+	top: 0;
+    z-index: 31;
+}
+.map .options .close {
+	border: 1px solid #000;
+	background: #fff;
+	color: #000;
+	cursor: pointer;
+	font-family: arial;
+    font-size: 23px;
+	font-weight: bold;
+	height: 30px;
+	text-align: center;
+	width: 30px;
+}
+.map .content{
+	background: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+    overflow: hidden;
+}
+.map .x {
+    height: 64px;
+	overflow: hidden;
+	width: 120%;
+}
+.map .y {
+	background: url("../img/world128.png");
+	background-repeat: no-repeat;
+	display: inline-block;
+    text-align: center;
+    width: 64px;
+}
+.map .y .element {
+    box-sizing: border-box;
+	height: 64px;
+    width: 64px;
+}
+.map .y .element:hover {
+	border: 1px solid #000;
+}

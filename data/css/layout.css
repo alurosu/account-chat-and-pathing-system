@@ -1,0 +1,26 @@
+html, body {
+	font-family: arial;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+}
+.dashboard {
+	z-index: 10;
+}
+.map {
+	z-index: 30;
+}
+.data-hover {
+	background: #fff;
+	border: 1px solid #000;
+	left: 100%;
+	padding: 10px;
+	position: absolute;
+	top: 100%;
+	z-index: 40;
+}
+.data-hover-content {
+	display: none;
+}

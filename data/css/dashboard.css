@@ -1,0 +1,54 @@
+.dashboard {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+.dashboard .profile {
+	border-bottom: 1px solid #ccc; /* guideline */
+	font-size: 15px;
+	padding: 0.4em;
+}
+.dashboard .profile .username{
+	font-size: 20px;
+    padding-bottom: 0.4em;
+}
+.dashboard .profile .picture {
+	border: 1px solid #000;
+	float: left;
+	height: 70px;
+	margin-right: 10px;
+	width: 70px;
+}
+.dashboard .stats {
+	bottom: 0.4em;
+	left: 0.4em;
+	position: absolute;
+	width: 20%;
+}
+.dashboard .stats .hp, .dashboard .stats .energy {
+	border: 1px solid #ccc;
+	height: 35px;
+	margin-top: 0.4em;
+}
+.dashboard .stats .bar {
+	border: 1px solid #000;
+    box-sizing: border-box;
+	height: 35px;
+}
+.dashboard .stats .text {
+	border: 1px solid #000;
+	background: #fff;
+	cursor: default;
+	float: right;
+	font-size: 12px;
+	height: 16px;
+	padding: 0 0.4em;
+}
+.dashboard .stats .hp .bar {
+	background: #CE5621;
+	width: 50%;
+}
+.dashboard .stats .energy .bar {
+	background: #E9CA2D;
+	width: 30%;
+}

@@ -1,0 +1,101 @@
+.chat {
+	width: 30%;
+    bottom: 84px;
+    left: 0.4em;
+    position: absolute;
+	padding: 1em 0;
+	z-index: 20;
+}
+.chat .filters {
+	padding: 0 0 0 0.4em;
+	margin: 0;
+	list-style: none;
+	border-bottom: 1px solid;
+	border-color: #ccc;
+}
+.chat.selected .filters {
+	border-color: #ccc;
+}
+.chat .filters li {
+	display: inline-block;
+	padding: 0.4em 1em;
+	cursor: pointer;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #ccc;
+    margin-bottom: -1px;
+}
+.chat .filters li.selected {
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #fff;
+	background: #fff;
+}
+.chat .messages {
+	padding: 0.4em;
+	min-height: 150px;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: #fff;
+	background: #fff;
+	
+	display: flex;	
+	flex-direction: column-reverse;
+	flex-wrap: no-wrap;
+	overflow: hidden;
+	max-height: 250px;
+}
+.chat.selected .messages {
+	border-color: #ccc;
+	overflow-y: auto;
+}
+.chat .messages .message {
+	width: 100%;
+}
+.chat .messages .message.system {
+	color: #E35400;
+}
+.chat .messages .message.system .user{
+	display: none;
+}
+.chat .messages .message.private {
+	color: rgb(138, 43, 226);
+}
+.chat .messages .message.global {
+	color: #777;
+}
+.chat .messages .message.guild {
+	color: rgb(46, 139, 87);
+}
+
+.chat .messages .message * {
+	display: inline-block;
+}
+.chat .messages .message .user {
+	cursor: pointer;
+	font-weight: bold;
+	padding-right: 0.3em;
+}
+.chat .messages .message .user:after {
+	content: ':';
+}
+.chat textarea {
+	resize: none;
+	width: 100%;
+	padding: 0.4em;
+	box-sizing: border-box;
+	overflow: hidden;
+	border-color: #ccc;
+	font-family: Arial;
+	font-size: 1em;
+	
+    outline: none;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.chat.selected textarea {
+	border-color: #666;
+}
