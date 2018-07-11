@@ -21,6 +21,16 @@ $(document).ready(function(){
 	$('body').on('click', '.chat .filters li', function(){
 		$('.chat .filters li').removeClass('selected');
 		$(this).addClass('selected');
+		
+		var show = $(this).attr('data-type');
+		$('.chat .messages .message').fadeOut(0);
+		$('.chat .to').val('local');
+		
+		if (!show)
+			show = 'message';
+		else if (show != 'private') $('.chat .to').val(show);
+		
+		$('.chat .messages .'+show).fadeIn(0);
 	});
 	
 	// input interactions
@@ -47,7 +57,7 @@ $(document).ready(function(){
 	function addMessage(user, text, c) {
 		var message = '';
 		if (c != 'global' && c != 'private' && c!= 'system' && c!= 'guild')
-			c = 'nearby';
+			c = 'local';
 		c = ' '+c;
 		
 		message += '<div class="message'+c+'">';

@@ -54,22 +54,9 @@
 .chat .messages .message {
 	width: 100%;
 }
-.chat .messages .message.system {
-	color: #E35400;
-}
 .chat .messages .message.system .user{
 	display: none;
 }
-.chat .messages .message.private {
-	color: rgb(138, 43, 226);
-}
-.chat .messages .message.global {
-	color: #777;
-}
-.chat .messages .message.guild {
-	color: rgb(46, 139, 87);
-}
-
 .chat .messages .message * {
 	display: inline-block;
 }
@@ -81,21 +68,55 @@
 .chat .messages .message .user:after {
 	content: ':';
 }
-.chat textarea {
-	resize: none;
-	width: 100%;
-	padding: 0.4em;
+.chat .send > * {
 	box-sizing: border-box;
-	overflow: hidden;
-	border-color: #ccc;
-	font-family: Arial;
 	font-size: 1em;
+	font-family: Arial;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.4em;
+	border: 1px solid;
+	border-color: #ccc;
 	
     outline: none;
 	-webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
 }
-.chat.selected textarea {
+.chat .send > .to {
+	width: 20%;
+	border-left: 0;
+	color: #ccc;
+}
+.chat .to option {
+	color: #333;
+}
+.chat .send > textarea {
+	resize: none;
+	width: 80%;
+	overflow: hidden;
+	border-right: 0;
+}
+.chat.selected .send > * {
 	border-color: #666;
+}
+.chat.selected .to {
+	color: #333;
+}
+
+/* color settings */
+.chat .messages .message.system {
+	color: #E35400;
+}
+.chat .messages .message.private {
+	color: rgb(138, 43, 226);
+}
+.chat .messages .message.party {
+	color: rgb(30, 144, 255);
+}
+.chat .messages .message.global {
+	color: #777;
+}
+.chat .messages .message.guild {
+	color: rgb(46, 139, 87);
 }
