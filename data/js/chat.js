@@ -40,23 +40,53 @@ $(document).ready(function(){
 	$('body').on('focusout', '.chat .send textarea', function(){
 		$(this).val('');
 	});
+	var firstSpace = true;
 	$('body').on('keydown',  '.chat .send textarea', function(e) {
 		if(e.keyCode == 13) { // enter
-            e.preventDefault();
-			if ($(this).val()) {
-				addMessage('alurosu', $(this).val());
-				$(this).val('');
-			}				
+			var text = $(this).val();
+			if (!/\s/.test(text)) {
+				proccessFirstWord(text, e);
+			} 
+			
+			sendMessage($(this).val(), $('.chat .to').val());
+            e.preventDefault();	
 		} else if (e.keyCode == 27) { // esc
             e.preventDefault();
 			$(this).blur();
 			$('.chat').removeClass('selected');
+		} else if (e.keyCode == 32 && firstSpace) { // first time pressing space
+			firstSpace = false;
+			proccessFirstWord($(this).val(), e);
 		}
 	});
+	$('body').on('change', '.chat .send .to', function(){
+		var c = $(this).val();
+		$('.chat .send textarea').focus();
+		$('.chat .send').removeClass( "guild party private local global" ).addClass(c);
+	});
+	
+	function proccessFirstWord(text, e) {
+		// switch target based on first word
+		if (text == '/party' || text == '/guild' || text == '/global' || text == '/local') {
+			$('.chat .send .to').val(text.substr(1));
+			$('.chat .send textarea').val('');
+			firstSpace = true;
+			if (e)
+				e.preventDefault();
+		}
+	}
+	
+	function sendMessage(msg, to) {
+		if (msg) {
+			addMessage('alurosu', msg, to);
+			$('.chat .send textarea').val('');
+			firstSpace = true;
+		}
+	}
 	
 	function addMessage(user, text, c) {
 		var message = '';
-		if (c != 'global' && c != 'private' && c!= 'system' && c!= 'guild')
+		if (c != 'global' && c != 'private' && c != 'system' && c != 'guild' && c != 'party')
 			c = 'local';
 		c = ' '+c;
 		

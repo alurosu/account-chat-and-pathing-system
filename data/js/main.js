@@ -31,7 +31,7 @@ $(document).ready(function(){
 	
 	// binding keys
 	$(document).keydown(function(e) {
-		console.log("keydown: " + e.keyCode);
+		// console.log("keydown: " + e.keyCode);
 		
 		if (!$('.chat').hasClass('selected')) {
 			if(e.keyCode == 13) { // enter
