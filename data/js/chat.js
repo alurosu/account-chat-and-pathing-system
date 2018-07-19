@@ -2,7 +2,7 @@ $(document).ready(function(){
 	console.log("chat.js: loaded");
 	loadPart("data/part/chat.html", function(){
 		console.log('chat loaded');
-		addMessage('System', 'Welcome to the game.', 'system');
+		addMessage('System', 'Welcome to the game. Type /help for a more chat commands.', 'system');
 	});
 	
 	// highlight chat box on use
@@ -69,6 +69,12 @@ $(document).ready(function(){
 		// switch target based on first word
 		if (text == '/party' || text == '/guild' || text == '/global' || text == '/local') {
 			$('.chat .send .to').val(text.substr(1));
+			$('.chat .send textarea').val('');
+			firstSpace = true;
+			if (e)
+				e.preventDefault();
+		} else if (text == '/help') {
+			addMessage('System', 'You can use /global, /local, /party and /guild to select different categories to write your message.', 'system');
 			$('.chat .send textarea').val('');
 			firstSpace = true;
 			if (e)
