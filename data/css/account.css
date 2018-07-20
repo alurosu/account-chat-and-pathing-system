@@ -102,3 +102,16 @@ body {
     float: left;
     padding-top: 0.2em;
 }
+
+.content .menu {
+	font-size: 0.7em;
+	padding: 1em 0 0 0;
+}
+.content .menu li {
+	list-style: none;
+    text-align: right;
+	padding: 0.3em;
+}
+.content .menu li a {
+    text-decoration: none;
+}

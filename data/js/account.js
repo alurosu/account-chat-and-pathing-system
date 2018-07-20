@@ -5,34 +5,68 @@ $(document).ready(function(){
 		page = 'login';
 	
 	$("#"+page).addClass('active');
+	$("[data-hide="+page+"]").fadeOut(0);
 	
 	// login
 	$('#login').on('click', 'button', function(){
-		if (!$(this).hasClass('loading')) {
-			var btn = $(this);
-			var path = 'login.php?user='+$('#login input[type=text]').val()+'&pass='+$('#login input[type=password]').val();
-			showBtnLoader(btn);
-			
-			server(path, function(data){
-				if (!data.error) {
-					console.log(data);
-					localStorage.session = data.session;
-				} else {
-					$('#login .error').html(data.error);
-				}
-				hideBtnLoader(btn);
-			});
+		doLogin($(this));
+	});
+	$('#login input[type=password]').keydown(function(e) {
+		if(e.keyCode == 13) {
+			doLogin($('#login button'));
+			e.preventDefault();
 		}
 	});
 	
 	// register
 	$('#register').on('click', 'button', function(){
-		if (!$(this).hasClass('loading')) {
-			var btn = $(this);
-			showBtnLoader(btn);
+		doRegister($(this));
+	});
+	$('#register input[type=password]').keydown(function(e) {
+		if(e.keyCode == 13) {
+			doRegister($('#register button'));
+			e.preventDefault();
 		}
 	});
 });
+
+function doLogin(btn) {
+	if (!btn.hasClass('loading')) {
+		var path = 'login.php?user='+$('#login input[type=text]').val()+'&pass='+$('#login input[type=password]').val();
+		showBtnLoader(btn);
+		
+		server(path, function(data){
+			if (!data.error) {
+				localStorage.session = data.session;
+				window.location.replace("index.html");
+			} else {
+				$('#login .error').html(data.error);
+			}
+			hideBtnLoader(btn);
+		});
+	}
+}
+
+function doRegister(btn) {
+	if (!btn.hasClass('loading')) {
+		var path = 'register.php?user='+$('#register input[type=text]').val()
+			+'&email='+$('#register input[type=email]').val()
+			+'&pass='+$('#register input[type=password]').val()
+			+'&repass='+$('#register input[type=password]').last().val();
+			console.log(path);
+		showBtnLoader(btn);
+
+		server(path, function(data){
+			if (!data.error) {
+				localStorage.session = data.session;
+				window.location.replace("index.html");
+			} else {
+				$('#register .error').html(data.error);
+			}
+			hideBtnLoader(btn);
+		});
+	}
+}
 
 function showBtnLoader(btn) {
 	btn

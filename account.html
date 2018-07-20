@@ -14,7 +14,7 @@
 	<div class="content">
 		<div id="login">
 			<div class="title">Login</div>
-			<input type="text" placeholder="user" />
+			<input type="text" placeholder="username" />
 			<input type="password" placeholder="password" />
 			<div class="separator"></div>
 			<div class="error"></div>
@@ -25,10 +25,11 @@
 			<div class="title">Register</div>
 			<input type="email" placeholder="email" />
 			<div class="separator"></div>
-			<input type="text" placeholder="user" />
+			<input type="text" placeholder="username" />
 			<input type="password" placeholder="password" />
 			<input type="password" placeholder="password again" />
 			<div class="separator"></div>
+			<div class="error"></div>
 			<button>Register</button>
 			<div class="clear"></div>
 		</div>
@@ -39,6 +40,18 @@
 			<button>Send</button>
 			<div class="clear"></div>
 		</div>
+		
+		<ul class="menu">
+			<li data-hide="register">
+				<a href="?page=register">Register</a>
+			</li>
+			<li data-hide="login">
+				<a href="?page=login">Login</a>
+			</li>
+			<li data-hide="forgot">
+				<a href="?page=forgot">Forgot password?</a>
+			</li>
+		</ul>
 	</div>
 </body>
 </html>

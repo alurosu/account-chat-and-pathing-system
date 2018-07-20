@@ -66,9 +66,12 @@ function server(path, callback) {
 			callback(dataWeGotViaJsonp);
 		},
 		error: function(xhr, ajaxOptions, thrownError){
-			if(xhr.status==404) {
-				callback({'error':'invalid server path or offline'});
-			}
+			if (xhr.readyState == 0)
+				callback({'error':"Connect to the internet and try again."});
+			else if (xhr.status==404)
+				callback({'error':"Invalid path or the server is offline."});
+			else
+				callback({'error':"Error: "+thrownError});
 		}
 	});
 }
