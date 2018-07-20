@@ -4,15 +4,15 @@ header("access-control-allow-origin: *");
 
 include("mysql/open.php");
 
-if (isset($_POST['pass'], $_POST['user'])) {
-	$pass = md5($conn->real_escape_string($_POST['pass']));
-	$sql = "SELECT id, user FROM users WHERE pass = '$pass'";
+if (!empty($_GET['pass']) && !empty($_GET['user'])) {
+	$user = $conn->real_escape_string($_GET['user']);
+	$sql = "SELECT id, pass FROM users WHERE user = '$user'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
 		$row = $result->fetch_assoc();
 		
-		if ($conn->real_escape_string($_POST['user']) == $row['user']) {
+		if (md5($conn->real_escape_string($_GET['pass'])) == $row['pass']) {
 			$session = md5(time().mt_rand(1,1000));
 			
 			$sql = "UPDATE users SET session='$session' WHERE id='".$row['id']."'";
@@ -25,7 +25,7 @@ if (isset($_POST['pass'], $_POST['user'])) {
 
 if (!empty($_GET['callback']))
 	echo $_GET['callback'] . '(' .json_encode($resultSet) . ')';
-	else
+else
 	echo json_encode($resultSet);
 
 include("mysql/close.php");

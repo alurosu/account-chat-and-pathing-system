@@ -9,15 +9,28 @@ $(document).ready(function(){
 	// login
 	$('#login').on('click', 'button', function(){
 		if (!$(this).hasClass('loading')) {
-			showBtnLoader($(this));
-		} else hideBtnLoader($(this));
+			var btn = $(this);
+			var path = 'login.php?user='+$('#login input[type=text]').val()+'&pass='+$('#login input[type=password]').val();
+			showBtnLoader(btn);
+			
+			server(path, function(data){
+				if (!data.error) {
+					console.log(data);
+					localStorage.session = data.session;
+				} else {
+					$('#login .error').html(data.error);
+				}
+				hideBtnLoader(btn);
+			});
+		}
 	});
 	
 	// register
 	$('#register').on('click', 'button', function(){
 		if (!$(this).hasClass('loading')) {
-			showBtnLoader($(this));
-		} else hideBtnLoader($(this));
+			var btn = $(this);
+			showBtnLoader(btn);
+		}
 	});
 });
 
@@ -26,7 +39,8 @@ function showBtnLoader(btn) {
 		.attr('data-html',btn.html())
 		.html('')
 		.addClass('loading')
-		.parent().find('input').prop('disabled', true);
+		.parent().find('input').prop('disabled', true)
+		.parent().find('.error').html('');
 }
 function hideBtnLoader(btn) {
 	btn
