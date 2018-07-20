@@ -1,9 +1,9 @@
 <?php
 header('content-type: application/json; charset=utf-8');
 header("access-control-allow-origin: *");
-/*
-include("connection_open.php");
 
+include("mysql/open.php");
+/*
 if (isset($_GET["user"]))
 	$sql = "SELECT * FROM thankyou WHERE autor = '".$_GET["user"]."' ORDER BY RAND() LIMIT 0,1";
 	else
@@ -28,5 +28,5 @@ if (!empty($_GET['callback']))
 	else
 	echo json_encode($resultSet);
 
-//include("connection_close.php");
+include("mysql/close.php");
 ?>

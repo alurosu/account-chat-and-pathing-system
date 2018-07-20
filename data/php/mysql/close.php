@@ -1,0 +1,3 @@
+<?PHP
+$conn->close();
+?>
