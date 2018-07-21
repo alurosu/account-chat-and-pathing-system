@@ -6,6 +6,7 @@ $(document).ready(function(){
 	
 	$("#"+page).addClass('active');
 	$("[data-hide="+page+"]").fadeOut(0);
+	// document.title = page + " MMO";
 	
 	// login
 	$('#login').on('click', 'button', function(){

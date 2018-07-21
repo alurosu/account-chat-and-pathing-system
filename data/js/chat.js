@@ -1,9 +1,5 @@
 $(document).ready(function(){
 	console.log("chat.js: loaded");
-	loadPart("data/part/chat.html", function(){
-		console.log('chat loaded');
-		addMessage('System', 'Welcome to the game. Type /help for a more chat commands.', 'system');
-	});
 	
 	// highlight chat box on use
 	$('body').on('click', '.chat', function(){
@@ -64,42 +60,42 @@ $(document).ready(function(){
 		$('.chat .send textarea').focus();
 		$('.chat .send').removeClass( "guild party private local global" ).addClass(c);
 	});
-	
-	function proccessFirstWord(text, e) {
-		// switch target based on first word
-		if (text == '/party' || text == '/guild' || text == '/global' || text == '/local') {
-			$('.chat .send .to').val(text.substr(1));
-			$('.chat .send textarea').val('');
-			firstSpace = true;
-			if (e)
-				e.preventDefault();
-		} else if (text == '/help') {
-			addMessage('System', 'You can use /global, /local, /party and /guild to select different categories to write your message.', 'system');
-			$('.chat .send textarea').val('');
-			firstSpace = true;
-			if (e)
-				e.preventDefault();
-		}
-	}
-	
-	function sendMessage(msg, to) {
-		if (msg) {
-			addMessage('alurosu', msg, to);
-			$('.chat .send textarea').val('');
-			firstSpace = true;
-		}
-	}
-	
-	function addMessage(user, text, c) {
-		var message = '';
-		if (c != 'global' && c != 'private' && c != 'system' && c != 'guild' && c != 'party')
-			c = 'local';
-		c = ' '+c;
-		
-		message += '<div class="message'+c+'">';
-			message += '<div class="user">'+user+'</div>';
-			message += '<div class="text">'+text+'</div>';
-		message += '</div>';
-		$('.chat .messages').prepend(message);
-	}
 });
+
+function proccessFirstWord(text, e) {
+	// switch target based on first word
+	if (text == '/party' || text == '/guild' || text == '/global' || text == '/local') {
+		$('.chat .send .to').val(text.substr(1));
+		$('.chat .send textarea').val('');
+		firstSpace = true;
+		if (e)
+			e.preventDefault();
+	} else if (text == '/help') {
+		addMessage('System', 'You can use /global, /local, /party and /guild to select different categories to write your message.', 'system');
+		$('.chat .send textarea').val('');
+		firstSpace = true;
+		if (e)
+			e.preventDefault();
+	}
+}
+
+function sendMessage(msg, to) {
+	if (msg) {
+		addMessage('alurosu', msg, to);
+		$('.chat .send textarea').val('');
+		firstSpace = true;
+	}
+}
+
+function addMessage(user, text, c) {
+	var message = '';
+	if (c != 'global' && c != 'private' && c != 'system' && c != 'guild' && c != 'party')
+		c = 'local';
+	c = ' '+c;
+	
+	message += '<div class="message'+c+'">';
+		message += '<div class="user">'+user+'</div>';
+		message += '<div class="text">'+text+'</div>';
+	message += '</div>';
+	$('.chat .messages').prepend(message);
+}

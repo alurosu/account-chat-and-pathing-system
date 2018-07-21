@@ -24,3 +24,43 @@ html, body {
 .data-hover-content {
 	display: none;
 }
+.loading {
+	background: #fff;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	z-index: 100;
+}
+.loading .content {
+	width: 100%;
+	left: 0;
+	bottom: 2em;
+	position: absolute;
+}
+.loading .content > * {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.loading .bar {
+	border: 1px solid #000;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: 0.5em;
+	height: 1.5em;
+	
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.loading .bar div {
+	background: url(../img/loading_bar.png);
+	height: 100%;
+	width: 0;
+	
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
