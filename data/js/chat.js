@@ -42,7 +42,7 @@ $(document).ready(function(){
 			var text = $(this).val();
 			if (!/\s/.test(text)) {
 				proccessFirstWord(text, e);
-			} 
+			}
 			
 			sendMessage($(this).val(), $('.chat .to').val());
             e.preventDefault();	
@@ -79,21 +79,32 @@ function proccessFirstWord(text, e) {
 	}
 }
 
-function sendMessage(msg, to) {
+function sendMessage(msg, type) {
 	if (msg) {
-		addMessage('alurosu', msg, to);
-		$('.chat .send textarea').val('');
-		firstSpace = true;
+		var path = 'chat/addMessage.php?session='+localStorage.session
+			+'&text='+$('.chat .send textarea').val()
+			+'&type='+type;	
+		$('.chat .send textarea').prop('disabled', true);
+		server(path, function(data){
+			if (!data.error) {
+				addMessage(data.user, data.text, data.type);
+				
+				$('.chat .send textarea').val('');
+				firstSpace = true;
+			} else addMessage('System', data.error, 'system');
+			
+			$('.chat .send textarea').prop('disabled', false)
+		});
 	}
 }
 
-function addMessage(user, text, c) {
+function addMessage(user, text, type) {
 	var message = '';
-	if (c != 'global' && c != 'private' && c != 'system' && c != 'guild' && c != 'party')
-		c = 'local';
-	c = ' '+c;
+	if (type != 'global' && type != 'private' && type != 'system' && type != 'guild' && type != 'party')
+		type = 'lotypeal';
+	type = ' '+type;
 	
-	message += '<div class="message'+c+'">';
+	message += '<div class="message'+type+'">';
 		message += '<div class="user">'+user+'</div>';
 		message += '<div class="text">'+text+'</div>';
 	message += '</div>';

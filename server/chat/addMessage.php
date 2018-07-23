@@ -4,7 +4,7 @@ header("access-control-allow-origin: *");
 
 include("../mysql/open.php");
 
-if (!empty($_GET['user']) && !empty($_GET['text']) && !empty($_GET['type'])) {
+if (!empty($_GET['text']) && !empty($_GET['type'])) {
 	if (!empty($_GET['session'])) {
 		$type = $conn->real_escape_string($_GET['type']);
 		$session = $conn->real_escape_string($_GET['session']);
@@ -16,16 +16,21 @@ if (!empty($_GET['user']) && !empty($_GET['text']) && !empty($_GET['type'])) {
 
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
-			$user = $conn->real_escape_string($_GET['user']);
 			$text = $conn->real_escape_string($_GET['text']);
-			$target = $conn->real_escape_string($_GET['target']);
+			
+			$user = $row['user'];
+			$target = $row['target'];
 			if ($type == 'local')
 				$target = $row['x'].$row['y'];
 			
-			$sql = "INSERT INTO chat (user, text, type, target, time) VALUES ('$user', '$text', '$type', '$target', '".time()."')";
-			if ($conn->query($sql) === TRUE) {
-				$resultSet['noise'] = $session;
-			} else $resultSet['error'] = 'Error updating record: ' . $conn->error;
+			$sql = "DELETE FROM chat WHERE time < ".(time()-60)."; ";
+			$sql .= "INSERT INTO chat (user, text, type, target, time) VALUES ('$user', '$text', '$type', '$target', '".time()."')";
+			if ($conn->multi_query($sql) === TRUE) {
+				$resultSet['user'] = $user;
+				$resultSet['text'] = $text;
+				$resultSet['type'] = $type;
+				$resultSet['target'] = $target;
+			} else $resultSet['error'] = ' Error updating record: ' . $conn->error;
 		} else $resultSet['login'] = 'true';
 	} else $resultSet['login'] = 'true';
 } else $resultSet['error'] = '[user], [text] and [type] are required to send a message.';
