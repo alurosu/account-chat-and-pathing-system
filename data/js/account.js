@@ -33,7 +33,7 @@ $(document).ready(function(){
 
 function doLogin(btn) {
 	if (!btn.hasClass('loading')) {
-		var path = 'login.php?user='+$('#login input[type=text]').val()+'&pass='+$('#login input[type=password]').val();
+		var path = 'account/login.php?user='+$('#login input[type=text]').val()+'&pass='+$('#login input[type=password]').val();
 		showBtnLoader(btn);
 		
 		server(path, function(data){
@@ -50,7 +50,7 @@ function doLogin(btn) {
 
 function doRegister(btn) {
 	if (!btn.hasClass('loading')) {
-		var path = 'register.php?user='+$('#register input[type=text]').val()
+		var path = 'account/register.php?user='+$('#register input[type=text]').val()
 			+'&email='+$('#register input[type=email]').val()
 			+'&pass='+$('#register input[type=password]').val()
 			+'&repass='+$('#register input[type=password]').last().val();

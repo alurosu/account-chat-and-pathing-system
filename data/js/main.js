@@ -58,12 +58,15 @@ function loadPart(path, callback) {
 }
 
 function server(path, callback) {
-	path = "data/php/" + path;
+	path = "server/" + path;
 	$.ajax({
 		url: path,
 		dataType: 'jsonp',
 		success: function(dataWeGotViaJsonp){
-			callback(dataWeGotViaJsonp);
+			if (dataWeGotViaJsonp.login)
+				window.location.replace("account.html");
+			else
+				callback(dataWeGotViaJsonp);
 		},
 		error: function(xhr, ajaxOptions, thrownError){
 			if (xhr.readyState == 0)

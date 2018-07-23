@@ -15,6 +15,10 @@ function doLoading() {
 	switch(currentStep) {
 		case 0:
 			$('.loading .text').html('Loading profile');
+			server('profile.php?session='+localStorage.session, function(data){
+				console.log(data);
+			});
+			
 			updateLoadingBar();
 			break;
 		case 1:

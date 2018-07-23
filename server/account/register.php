@@ -2,7 +2,7 @@
 header('content-type: application/json; charset=utf-8');
 header("access-control-allow-origin: *");
 
-include("mysql/open.php");
+include("../mysql/open.php");
 
 if (!empty($_GET['email']) && !empty($_GET['user']) && !empty($_GET['pass']) && !empty($_GET['repass'])) {
 	// check if email is valid
@@ -39,5 +39,5 @@ if (!empty($_GET['callback']))
 else
 	echo json_encode($resultSet);
 
-include("mysql/close.php");
+include("../mysql/close.php");
 ?>
