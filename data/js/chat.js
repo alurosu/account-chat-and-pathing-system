@@ -1,5 +1,8 @@
+var gmID;
+var firstSpace = true;
 $(document).ready(function(){
 	console.log("chat.js: loaded");
+	setInterval(getMessages, 1000);
 	
 	// highlight chat box on use
 	$('body').on('click', '.chat', function(){
@@ -36,7 +39,6 @@ $(document).ready(function(){
 	$('body').on('focusout', '.chat .send textarea', function(){
 		$(this).val('');
 	});
-	var firstSpace = true;
 	$('body').on('keydown',  '.chat .send textarea', function(e) {
 		if(e.keyCode == 13) { // enter
 			var text = $(this).val();
@@ -93,7 +95,7 @@ function sendMessage(msg, type) {
 				firstSpace = true;
 			} else addMessage('System', data.error, 'system');
 			
-			$('.chat .send textarea').prop('disabled', false)
+			$('.chat .send textarea').prop('disabled', false).focus();
 		});
 	}
 }
@@ -101,7 +103,7 @@ function sendMessage(msg, type) {
 function addMessage(user, text, type) {
 	var message = '';
 	if (type != 'global' && type != 'private' && type != 'system' && type != 'guild' && type != 'party')
-		type = 'lotypeal';
+		type = 'local';
 	type = ' '+type;
 	
 	message += '<div class="message'+type+'">';
@@ -109,4 +111,15 @@ function addMessage(user, text, type) {
 		message += '<div class="text">'+text+'</div>';
 	message += '</div>';
 	$('.chat .messages').prepend(message);
+}
+
+function getMessages() {
+	server('chat/getMessages.php?session='+localStorage.session+'&id='+gmID, function(data){
+		if (!data.error) {
+			gmID = data.id;
+			if (data.messages)
+				for (m of data.messages)
+					addMessage(m.user, m.text, m.type);
+		} else addMessage('System', data.error, 'system');
+	});
 }

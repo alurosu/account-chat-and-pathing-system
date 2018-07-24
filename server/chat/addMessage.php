@@ -19,7 +19,7 @@ if (!empty($_GET['text']) && !empty($_GET['type'])) {
 			$text = $conn->real_escape_string($_GET['text']);
 			
 			$user = $row['user'];
-			$target = $row['target'];
+			$target = '';
 			if ($type == 'local')
 				$target = $row['x'].$row['y'];
 			

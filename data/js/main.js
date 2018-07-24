@@ -63,10 +63,12 @@ function server(path, callback) {
 		url: path,
 		dataType: 'jsonp',
 		success: function(dataWeGotViaJsonp){
-			if (dataWeGotViaJsonp.login)
-				window.location.replace("account.html");
-			else
-				callback(dataWeGotViaJsonp);
+			if (dataWeGotViaJsonp) {
+				if (dataWeGotViaJsonp.login)
+					window.location.replace("account.html");
+				else
+					callback(dataWeGotViaJsonp);
+			} else console.log("The server returns empty data.");
 		},
 		error: function(xhr, ajaxOptions, thrownError){
 			if (xhr.readyState == 0)
