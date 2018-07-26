@@ -3,18 +3,18 @@
 		<li class="selected">All</li>
 		<li data-type="local">Local</li>
 		<li data-type="global">Global</li>
-		<li data-type="party">Party</li>
-		<li data-type="guild">Guild</li>
+		<li data-type="party" class="hide">Party</li>
+		<li data-type="guild" class="hide">Guild</li>
 		<li data-type="private">PM</li>
 	</ul>
 	<div class="messages">
 	</div>
 	<div class="send guild">
-		<textarea rows="1"></textarea><select class="to">
-			<option value="global">Global</option>
-			<option value="local" selected="selected">Local</option>
-			<option value="party">Party</option>
-			<option value="guild">Guild</option>
-		</select>
+		<textarea rows="1"></textarea><div class="select to">
+			<div data-value="global" class="option">Global</div>
+			<div data-value="local" class="option selected">Local</div>
+			<div data-value="party" class="option">Party</div>
+			<div data-value="guild" class="option">Guild</div>
+		</div>
 	</div>
 </div>

@@ -74,7 +74,6 @@
 	font-family: Arial;
 	display: inline-block;
 	vertical-align: middle;
-	padding: 0.4em;
 	border: 1px solid;
 	border-color: #ccc;
 	
@@ -87,15 +86,37 @@
 	width: 20%;
 	border-left: 0;
 	color: #ccc;
+	display: inline-block;
+	vertical-align: bottom;
+    position: relative;
+	margin-top: -10em;
 }
-.chat .to option {
-	color: #333;
+.chat .to div {
+	background: #fff;
+	padding: 0.4em;
+	cursor: pointer;
+	display: none;
+	border-left: 1px solid;
+}
+.chat .to div:hover {
+	background: #eee;
+}
+.chat .to div.selected, .chat .to.open div{
+	display: block;
+}
+.chat .to div:last-child, .chat .to div.selected {
+	border-left: 0px;
+}
+.chat .to.open div.selected {
+	background: #eee;
+	border-left: 1px solid;
 }
 .chat .send > textarea {
 	resize: none;
 	width: 80%;
 	overflow: hidden;
 	border-right: 0;
+	padding: 0.4em;
 }
 .chat.selected .send > * {
 	border-color: #666;
@@ -119,4 +140,7 @@
 }
 .chat .messages .message.guild {
 	color: rgb(46, 139, 87);
+}
+.chat .hide {
+	display: none !important;
 }

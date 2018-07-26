@@ -13,6 +13,7 @@ $(document).ready(function(){
         var subject = $(".chat");
         if(e.target.class != subject.attr('class') && !subject.has(e.target).length) {
 			$('.chat').removeClass('selected');
+			$('.chat .to').removeClass('open');
         }
     });
 	
@@ -27,7 +28,7 @@ $(document).ready(function(){
 		
 		if (!show)
 			show = 'message';
-		else if (show != 'private') $('.chat .to').val(show);
+		else if (show != 'private') toSelect(show);
 		
 		$('.chat .messages .'+show).fadeIn(0);
 	});
@@ -46,7 +47,7 @@ $(document).ready(function(){
 				proccessFirstWord(text, e);
 			}
 			
-			sendMessage($(this).val(), $('.chat .to').val());
+			sendMessage($(this).val(), $('.chat .to .selected').attr('data-value'));
             e.preventDefault();	
 		} else if (e.keyCode == 27) { // esc
             e.preventDefault();
@@ -57,17 +58,28 @@ $(document).ready(function(){
 			proccessFirstWord($(this).val(), e);
 		}
 	});
-	$('body').on('change', '.chat .send .to', function(){
-		var c = $(this).val();
-		$('.chat .send textarea').focus();
-		$('.chat .send').removeClass( "guild party private local global" ).addClass(c);
+	$('body').on('click', '.chat .send .to div', function(){
+		if (!$(this).hasClass('selected')) {
+			$('.chat .send .to div').removeClass('selected');
+			
+			var c = $(this).attr('data-value');
+			$(this).addClass('selected');
+			$('.chat .send textarea').focus();
+			$('.chat .send').removeClass( "guild party private local global" ).addClass(c);
+			$('.chat .send .to').removeClass('open');
+		} else $('.chat .send .to').addClass('open');
 	});
 });
+
+function toSelect(value) {
+	$('.chat .send .to div').removeClass('selected');
+	$('.chat .send .to div[data-value="'+value+'"]').addClass('selected');
+}
 
 function proccessFirstWord(text, e) {
 	// switch target based on first word
 	if (text == '/party' || text == '/guild' || text == '/global' || text == '/local') {
-		$('.chat .send .to').val(text.substr(1));
+		toSelect(text.substr(1))
 		$('.chat .send textarea').val('');
 		firstSpace = true;
 		if (e)
@@ -118,8 +130,8 @@ function getMessages() {
 		if (!data.error) {
 			gmID = data.id;
 			if (data.messages)
-				for (m of data.messages)
-					addMessage(m.user, m.text, m.type);
+				for (i=0; i<=data.messages.length; i++)
+					addMessage(data.messages[i].user, data.messages[i].text, data.messages[i].type);
 		} else addMessage('System', data.error, 'system');
 	});
 }

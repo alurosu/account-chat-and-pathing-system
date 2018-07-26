@@ -8,7 +8,7 @@ $(document).ready(function(){
 function updateLoadingBar() {
 	currentStep++;
 	var percent = currentStep/totalSteps*100;
-	$('.loading .bar div').finish().animate({ width: percent+"%"}, 300, doLoading);
+	$('.loading .bar div').finish().animate({ width: percent+"%"}, 0, doLoading);
 }
 
 function doLoading() {
