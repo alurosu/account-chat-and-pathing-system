@@ -107,9 +107,26 @@
 .chat .to div:last-child, .chat .to div.selected {
 	border-left: 0px;
 }
+.chat .to div.selected:after {
+	content: "";
+	width: 0; 
+	height: 0; 
+	
+	border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+    border-top: 0.3em solid;
+    float: right;
+    margin: 0.4em;
+}
+.chat .to.open div.selected:after {
+	display: none;
+}
 .chat .to.open div.selected {
 	background: #eee;
 	border-left: 1px solid;
+}
+.chat .to.open div:last-child.selected {
+	border-left: 0px;
 }
 .chat .send > textarea {
 	resize: none;

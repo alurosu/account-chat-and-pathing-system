@@ -8,11 +8,17 @@ $(document).ready(function(){
 	$('body').on('click', '.chat', function(){
 		$('.chat').addClass('selected');
 	});
+	
+	// remove highlight when clicking anywhere else
 	$("body").mouseup(function(e) {
-		// remove highlight when clicking anywhere else
         var subject = $(".chat");
         if(e.target.class != subject.attr('class') && !subject.has(e.target).length) {
 			$('.chat').removeClass('selected');
+        }
+    });
+	$("body").mouseup(function(e) {
+        var subject = $(".to");
+        if(e.target.class != subject.attr('class') && !subject.has(e.target).length) {
 			$('.chat .to').removeClass('open');
         }
     });
@@ -28,7 +34,7 @@ $(document).ready(function(){
 		
 		if (!show)
 			show = 'message';
-		else if (show != 'private') toSelect(show);
+		else if (show != 'private') setChatTo(show);
 		
 		$('.chat .messages .'+show).fadeIn(0);
 	});
@@ -56,6 +62,8 @@ $(document).ready(function(){
 		} else if (e.keyCode == 32 && firstSpace) { // first time pressing space
 			firstSpace = false;
 			proccessFirstWord($(this).val(), e);
+		} else if (e.keyCode == 8 || e.keyCode == 46) { // backspace or delete
+			firstSpace = true;
 		}
 	});
 	$('body').on('click', '.chat .send .to div', function(){
@@ -66,12 +74,14 @@ $(document).ready(function(){
 			$(this).addClass('selected');
 			$('.chat .send textarea').focus();
 			$('.chat .send').removeClass( "guild party private local global" ).addClass(c);
-			$('.chat .send .to').removeClass('open');
 		} else $('.chat .send .to').addClass('open');
+	});
+	$('body').on('click', '.chat .send .to.open div', function(){
+		$('.chat .send .to').removeClass('open');
 	});
 });
 
-function toSelect(value) {
+function setChatTo(value) {
 	$('.chat .send .to div').removeClass('selected');
 	$('.chat .send .to div[data-value="'+value+'"]').addClass('selected');
 }
@@ -79,7 +89,7 @@ function toSelect(value) {
 function proccessFirstWord(text, e) {
 	// switch target based on first word
 	if (text == '/party' || text == '/guild' || text == '/global' || text == '/local') {
-		toSelect(text.substr(1))
+		setChatTo(text.substr(1))
 		$('.chat .send textarea').val('');
 		firstSpace = true;
 		if (e)
