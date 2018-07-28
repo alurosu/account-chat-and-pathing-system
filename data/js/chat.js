@@ -88,14 +88,14 @@ function setChatTo(value) {
 
 function proccessFirstWord(text, e) {
 	// switch target based on first word
-	if (text == '/party' || text == '/guild' || text == '/global' || text == '/local') {
+	if (text == '/global' || text == '/local') { // text == '/party' || text == '/guild' || 
 		setChatTo(text.substr(1))
 		$('.chat .send textarea').val('');
 		firstSpace = true;
 		if (e)
 			e.preventDefault();
 	} else if (text == '/help') {
-		addMessage('System', 'You can use /global, /local, /party and /guild to select different categories to write your message.', 'system');
+		addMessage('System', 'You can use /global and /local to select different categories to write your message.', 'system');
 		$('.chat .send textarea').val('');
 		firstSpace = true;
 		if (e)

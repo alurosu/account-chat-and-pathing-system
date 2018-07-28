@@ -24,7 +24,7 @@ function doLoading() {
 		case 1:
 			$('.loading .text').html('Loading chat');
 			loadPart("data/part/chat.html", function(){
-				addMessage('System', 'Welcome to the game. Type /help for a more chat commands.', 'system');
+				addMessage('System', 'Welcome to the game. Type /help for more chat commands.', 'system');
 				console.log('chat loaded');
 				updateLoadingBar();
 			});
