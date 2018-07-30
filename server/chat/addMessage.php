@@ -9,9 +9,11 @@ if (!empty($_GET['text']) && !empty($_GET['type'])) {
 		$type = $conn->real_escape_string($_GET['type']);
 		$session = $conn->real_escape_string($_GET['session']);
 		
-		$sql = "SELECT id, user FROM users WHERE session = '$session'";
+		$sql = "SELECT user FROM users WHERE session = '$session'";
 		if ($type == 'local')
-			$sql = "SELECT id, user, x, y FROM users WHERE session = '$session'";
+			$sql = "SELECT s.x as x, s.y as y, u.user as user 
+				FROM users u, user_stats s 
+				WHERE u.id = s.user_id AND session = '$session'";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {

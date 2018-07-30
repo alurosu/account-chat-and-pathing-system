@@ -6,7 +6,9 @@ include("../mysql/open.php");
 
 if (!empty($_GET['session'])) {
 	$session = $conn->real_escape_string($_GET['session']);
-	$sql = "SELECT user, x, y FROM users WHERE session = '$session'";
+	$sql = "SELECT s.x as x, s.y as y, u.user as user 
+		FROM users u, user_stats s 
+		WHERE u.id = s.user_id AND session = '$session'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -19,13 +21,14 @@ if (!empty($_GET['session'])) {
 			$id = $conn->real_escape_string($_GET['id']);
 		
 			$local = $row['x'].$row['y'];
-			$sql = "SELECT user, text, type, target FROM chat WHERE id>".$id;
-			$sql .= " AND (type = 'global'";
-				$sql .= " OR type = 'local' AND target = '$local'";
-				$sql .= " OR type = 'party' AND target = '$party'";
-				$sql .= " OR type = 'guild' AND target = '$guild')";
-			$sql .= " AND user != '$user'";
-			$sql .= " ORDER BY id ASC";
+			$sql = "SELECT user, text, type, target FROM chat 
+				WHERE id>'$id' AND 
+					(type = 'global' 
+					OR type = 'local' AND target = '$local' 
+					OR type = 'party' AND target = '$party' 
+					OR type = 'guild' AND target = '$guild') 
+					AND user != '$user' 
+				ORDER BY id ASC";
 			
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {

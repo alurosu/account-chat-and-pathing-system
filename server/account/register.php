@@ -26,7 +26,11 @@ if (!empty($_GET['email']) && !empty($_GET['user']) && !empty($_GET['pass']) && 
 					$sql = "INSERT INTO users (user, pass, email, session) VALUES ('$user', '$pass', '$email', '$session')";
 					
 					if ($conn->query($sql) === TRUE) {
-						$resultSet['session'] = $session;
+						$sql = "INSERT INTO user_stats (user_id, x, y, hp, energy) VALUES ('".$conn->insert_id."', '0', '0', '42', '10')";
+						
+						if ($conn->query($sql) === TRUE) {
+							$resultSet['session'] = $session;
+						} else $resultSet['error'] = 'Error updating record: ' . $conn->error;
 					} else $resultSet['error'] = 'Error updating record: ' . $conn->error;
 				} else $resultSet['error'] = 'The password verification does not match.';
 			} else $resultSet['error'] = 'This username is already registered.';
