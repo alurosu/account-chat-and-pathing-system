@@ -1,17 +1,21 @@
 .map {
-	display: none;
-	height: 98%;
-	left: 1%;
 	margin: 0;
 	position: fixed;
-	top: 1%;
-	width: 98%;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+.map.open {
+	display: flex;
+}
+.map .center {
+	margin: auto;
+	width: auto;
+	height: auto;
 }
 .map .options {
-	position: absolute;
-    right: 0;
-	top: 0;
-    z-index: 31;
 }
 .map .options .close {
 	border: 1px solid #000;
@@ -25,7 +29,7 @@
 	text-align: center;
 	width: 30px;
 }
-.map .content{
+.map .content {
 	background: #fff;
     border: 1px solid #000;
     box-sizing: border-box;
@@ -36,7 +40,6 @@
 .map .x {
     height: 64px;
 	overflow: hidden;
-	width: 120%;
 }
 .map .y {
 	background: url("../img/world128.png");

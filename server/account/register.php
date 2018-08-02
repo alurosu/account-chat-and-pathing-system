@@ -26,7 +26,8 @@ if (!empty($_GET['email']) && !empty($_GET['user']) && !empty($_GET['pass']) && 
 					$sql = "INSERT INTO users (user, pass, email, session) VALUES ('$user', '$pass', '$email', '$session')";
 					
 					if ($conn->query($sql) === TRUE) {
-						$sql = "INSERT INTO user_stats (user_id, x, y, hp, energy) VALUES ('".$conn->insert_id."', '0', '0', '42', '10')";
+						$sql = "INSERT INTO user_stats (user_id, x, y, hp, max_hp, energy, max_energy) 
+							VALUES ('".$conn->insert_id."', '0', '0', '42', '100', '5', '10')";
 						
 						if ($conn->query($sql) === TRUE) {
 							$resultSet['session'] = $session;

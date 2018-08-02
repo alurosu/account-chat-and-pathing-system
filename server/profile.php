@@ -6,7 +6,7 @@ include("mysql/open.php");
 
 if (!empty($_GET['session'])) {
 	$session = $conn->real_escape_string($_GET['session']);
-	$sql = "SELECT s.hp as hp, s.energy as energy, s.x as x, s.y as y, u.user as user 
+	$sql = "SELECT s.hp as hp, s.max_hp as max_hp, s.max_energy as max_energy, s.energy as energy, s.x as x, s.y as y, u.user as user 
 		FROM users u, user_stats s 
 		WHERE u.id = s.user_id AND session = '$session'";
 	$result = $conn->query($sql);
@@ -14,7 +14,7 @@ if (!empty($_GET['session'])) {
 	if ($result->num_rows > 0) {
 		$row = $result->fetch_assoc();
 		
-		$resultSet['user'] = $row['user'];
+		$resultSet = $row;
 	} else $resultSet['login'] = 'true';
 } else $resultSet['login'] = 'true';
 

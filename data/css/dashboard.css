@@ -1,41 +1,35 @@
-.dashboard {
-	height: 100%;
-	position: absolute;
-	width: 100%;
-}
-.dashboard .profile {
-	border-bottom: 1px solid #ccc; /* guideline */
+.profile {
 	font-size: 15px;
 	padding: 0.4em;
 }
-.dashboard .profile .username{
+.profile .username{
 	font-size: 20px;
     padding-bottom: 0.4em;
 }
-.dashboard .profile .picture {
+.profile .picture {
 	border: 1px solid #000;
-	float: left;
 	height: 70px;
 	margin-right: 10px;
 	width: 70px;
 }
-.dashboard .stats {
-	bottom: 0.4em;
-	left: 0.4em;
-	position: absolute;
+.stats {
 	width: 20%;
 }
-.dashboard .stats .hp, .dashboard .stats .energy {
+.stats .hp, .stats .energy {
 	border: 1px solid #ccc;
 	height: 35px;
 	margin-top: 0.4em;
 }
-.dashboard .stats .bar {
+.stats .bar {
 	border: 1px solid #000;
     box-sizing: border-box;
 	height: 35px;
+	
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
-.dashboard .stats .text {
+.stats .text {
 	border: 1px solid #000;
 	background: #fff;
 	cursor: default;
@@ -44,11 +38,11 @@
 	height: 16px;
 	padding: 0 0.4em;
 }
-.dashboard .stats .hp .bar {
+.stats .hp .bar {
 	background: #CE5621;
 	width: 50%;
 }
-.dashboard .stats .energy .bar {
+.stats .energy .bar {
 	background: #E9CA2D;
 	width: 30%;
 }

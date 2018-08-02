@@ -1,45 +1,32 @@
 .chat {
 	width: 30%;
-    bottom: 84px;
-    left: 0.4em;
-    position: absolute;
-	padding: 1em 0;
-	z-index: 20;
+	margin: 0 2em;
+	background: #2F3439;
+	border-top: 2px solid #40474E;
+	border-radius: 0.3em;
 }
 .chat .filters {
-	padding: 0 0 0 0.4em;
+	padding: 0;
 	margin: 0;
 	list-style: none;
-	border-bottom: 1px solid;
-	border-color: #ccc;
-}
-.chat.selected .filters {
-	border-color: #ccc;
+	border-bottom: 1px solid #666;
 }
 .chat .filters li {
-	display: inline-block;
+	display: block;
 	padding: 0.4em 1em;
 	cursor: pointer;
-	border-top: 1px solid #fff;
-	border-left: 1px solid #fff;
-	border-right: 1px solid #fff;
-	border-bottom: 1px solid #ccc;
-    margin-bottom: -1px;
+	float: left;
+	width: 33%;
+	box-sizing: border-box;
+	text-align: center;
 }
 .chat .filters li.selected {
-	border-top: 1px solid #ccc;
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #fff;
-	background: #fff;
+	background: #2F3439;
 }
 .chat .messages {
 	padding: 0.4em;
 	min-height: 150px;
-	border-left: 1px solid;
-	border-right: 1px solid;
-	border-color: #fff;
-	background: #fff;
+	border-radius: 0.3em 0.3em 0 0;
 	
 	display: flex;	
 	flex-direction: column-reverse;
@@ -48,7 +35,6 @@
 	max-height: 250px;
 }
 .chat.selected .messages {
-	border-color: #ccc;
 	overflow-y: auto;
 }
 .chat .messages .message {
@@ -68,44 +54,49 @@
 .chat .messages .message .user:after {
 	content: ':';
 }
+.chat .send {
+	background: #2F3439;
+	padding: 0 0.5em 0.5em 0.5em;
+	border-radius: 0 0 0.3em 0.3em;
+}
 .chat .send > * {
 	box-sizing: border-box;
 	font-size: 1em;
 	font-family: Arial;
 	display: inline-block;
 	vertical-align: middle;
-	border: 1px solid;
-	border-color: #ccc;
+	border: 0;
 	
     outline: none;
 	-webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+	
+	text-shadow: none;
 }
 .chat .send > .to {
 	width: 20%;
 	border-left: 0;
-	color: #ccc;
+	color: #A2A2A2;
 	display: inline-block;
 	vertical-align: bottom;
     position: relative;
 	margin-top: -10em;
+	overflow: hidden;
+	border-radius: 0 0.3em 0.3em 0;
+}
+.chat .send > .to.open {
+	border-radius: 0.3em 0.3em 0.3em 0;
 }
 .chat .to div {
-	background: #fff;
+	background: #eee;
 	padding: 0.4em;
 	cursor: pointer;
 	display: none;
-	border-left: 1px solid;
-}
-.chat .to div:hover {
-	background: #eee;
+	color: #333;
 }
 .chat .to div.selected, .chat .to.open div{
 	display: block;
-}
-.chat .to div:last-child, .chat .to div.selected {
-	border-left: 0px;
 }
 .chat .to div.selected:after {
 	content: "";
@@ -119,14 +110,13 @@
     margin: 0.4em;
 }
 .chat .to.open div.selected:after {
-	display: none;
+	border-right: 0.5em solid;
+	border-top: 0.2em solid transparent;
+    border-bottom: 0.2em solid transparent;
+    margin: 0.35em;
 }
-.chat .to.open div.selected {
-	background: #eee;
-	border-left: 1px solid;
-}
-.chat .to.open div:last-child.selected {
-	border-left: 0px;
+.chat .to.open div:hover {
+	background: #D0D3D2;
 }
 .chat .send > textarea {
 	resize: none;
@@ -134,17 +124,13 @@
 	overflow: hidden;
 	border-right: 0;
 	padding: 0.4em;
-}
-.chat.selected .send > * {
-	border-color: #666;
-}
-.chat.selected .to {
-	color: #333;
+	background: #eee;
+	border-radius: 0.3em 0 0 0.3em;
 }
 
 /* color settings */
 .chat .messages .message.system {
-	color: #E35400;
+	color: #E5C453;
 }
 .chat .messages .message.private {
 	color: rgb(138, 43, 226);

@@ -6,14 +6,17 @@ html, body {
 	padding: 0;
 	width: 100%;
 }
-.dashboard {
-	z-index: 10;
+
+body {
+	background: #484848;
+	color: #fff;
+	text-shadow: 1px 1px #000;
 }
 .map {
 	z-index: 30;
 }
 .data-hover {
-	background: #fff;
+	background: #333333;
 	border: 1px solid #000;
 	left: 100%;
 	padding: 10px;
@@ -64,4 +67,13 @@ html, body {
 	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.shadow {
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+.clear {
+	clear: both;
 }
