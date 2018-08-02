@@ -106,7 +106,7 @@ function proccessFirstWord(text, e) {
 function sendMessage(msg, type) {
 	if (msg) {
 		var path = 'chat/addMessage.php?session='+localStorage.session
-			+'&text='+$('.chat .send textarea').val()
+			+'&text='+encodeURIComponent($('.chat .send textarea').val())
 			+'&type='+type;	
 		$('.chat .send textarea').prop('disabled', true);
 		server(path, function(data){

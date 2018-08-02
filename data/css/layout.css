@@ -8,9 +8,10 @@ html, body {
 }
 
 body {
-	background: #484848;
+	background: #2B2B2B;
 	color: #fff;
 	text-shadow: 1px 1px #000;
+	display: flex;
 }
 .map {
 	z-index: 30;

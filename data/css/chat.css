@@ -1,32 +1,33 @@
 .chat {
-	width: 30%;
-	margin: 0 2em;
+	width: 45%;
+	margin: 2em;
 	background: #2F3439;
-	border-top: 2px solid #40474E;
 	border-radius: 0.3em;
+	overflow: hidden;
 }
 .chat .filters {
 	padding: 0;
 	margin: 0;
 	list-style: none;
-	border-bottom: 1px solid #666;
 }
 .chat .filters li {
 	display: block;
-	padding: 0.4em 1em;
+	padding: 0.8em 1em;
 	cursor: pointer;
 	float: left;
-	width: 33%;
+	width: 33.33%;
 	box-sizing: border-box;
 	text-align: center;
+	border-top: 2px solid #40474E;
 }
 .chat .filters li.selected {
-	background: #2F3439;
+	border-top: 2px solid #EEEEEE;
 }
 .chat .messages {
-	padding: 0.4em;
+	padding: 0.6em 0.6em 0 0.6em;
 	min-height: 150px;
-	border-radius: 0.3em 0.3em 0 0;
+	
+	border-top: 1px solid #272B2F;
 	
 	display: flex;	
 	flex-direction: column-reverse;
@@ -56,7 +57,7 @@
 }
 .chat .send {
 	background: #2F3439;
-	padding: 0 0.5em 0.5em 0.5em;
+	padding: 0.5em;
 	border-radius: 0 0 0.3em 0.3em;
 }
 .chat .send > * {
@@ -90,10 +91,12 @@
 }
 .chat .to div {
 	background: #eee;
-	padding: 0.4em;
+	padding: 0.6em 0.4em;
 	cursor: pointer;
 	display: none;
 	color: #333;
+	overflow: hidden;
+	white-space: nowrap;
 }
 .chat .to div.selected, .chat .to.open div{
 	display: block;
@@ -123,7 +126,7 @@
 	width: 80%;
 	overflow: hidden;
 	border-right: 0;
-	padding: 0.4em;
+	padding: 0.6em 0.4em;
 	background: #eee;
 	border-radius: 0.3em 0 0 0.3em;
 }
@@ -136,13 +139,13 @@
 	color: rgb(138, 43, 226);
 }
 .chat .messages .message.party {
-	color: rgb(30, 144, 255);
+	color: #46BDDF;
 }
 .chat .messages .message.global {
-	color: #777;
+	color: #B2B8BE;
 }
 .chat .messages .message.guild {
-	color: rgb(46, 139, 87);
+	color: #51D273;
 }
 .chat .hide {
 	display: none !important;

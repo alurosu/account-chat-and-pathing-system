@@ -1,6 +1,11 @@
 .profile {
 	font-size: 15px;
 	padding: 0.4em;
+	border-top: 2px solid #40474E;
+	background: #2F3439;
+	border-radius: 0.3em;
+	width: 40%;
+	margin:auto;
 }
 .profile .username{
 	font-size: 20px;
@@ -12,16 +17,15 @@
 	margin-right: 10px;
 	width: 70px;
 }
-.stats {
-	width: 20%;
-}
 .stats .hp, .stats .energy {
-	border: 1px solid #ccc;
 	height: 35px;
 	margin-top: 0.4em;
+	background: #D0D3D2;
+	border-radius: 0.3em;
+	border-bottom: 2px solid #485058;
+	overflow: hidden;
 }
 .stats .bar {
-	border: 1px solid #000;
     box-sizing: border-box;
 	height: 35px;
 	
@@ -39,7 +43,8 @@
 	padding: 0 0.4em;
 }
 .stats .hp .bar {
-	background: #CE5621;
+	
+	background: #EE7147;
 	width: 50%;
 }
 .stats .energy .bar {
