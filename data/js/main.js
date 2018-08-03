@@ -6,7 +6,7 @@ $(document).ready(function(){
 	
 	// data-hover
 	$('body').on('mousemove', '[data-hover]', function(event){
-		var text = $(event.target).find('.data-hover-content').html();
+		var text = $(event.currentTarget).find('.data-hover-content').html();
         $('.data-hover').html(text);
 		
 		// adjust position according to window so that the popup never overflows it
