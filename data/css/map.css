@@ -32,7 +32,6 @@
 .map .content {
 	background: #fff;
     border: 1px solid #000;
-    box-sizing: border-box;
 	height: 100%;
 	width: 100%;
     overflow: hidden;
@@ -49,7 +48,6 @@
     width: 64px;
 }
 .map .y .element {
-    box-sizing: border-box;
 	height: 64px;
     width: 64px;
 }

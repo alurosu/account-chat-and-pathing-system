@@ -45,12 +45,14 @@ $(document).ready(function(){
 	});
 });
 
-function loadPart(path, callback) {
+function loadPart(path, callback, into) {
 	var response;
+	if (!into)
+		into = '.dashboard';
 	$.ajax({ type: "GET",   
 		url: path,
 		success : function(text) {
-			$('body').append(text);
+			$(into).append(text);
 			if (callback)
 				callback();
 		}

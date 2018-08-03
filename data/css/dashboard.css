@@ -1,21 +1,25 @@
+.dashboard {
+	display: flex;
+	height: 100%;
+	padding-bottom: 1em;
+}
 .profile {
 	font-size: 15px;
-	padding: 0.4em;
+	padding: 1em;
 	border-top: 2px solid #40474E;
 	background: #2F3439;
 	border-radius: 0.3em;
-	width: 40%;
-	margin:auto;
+	width: 50%;
+	margin: 1em;
 }
 .profile .username{
 	font-size: 20px;
     padding-bottom: 0.4em;
 }
 .profile .picture {
-	border: 1px solid #000;
 	height: 70px;
-	margin-right: 10px;
 	width: 70px;
+	margin: auto;
 }
 .stats .hp, .stats .energy {
 	height: 35px;
@@ -26,21 +30,11 @@
 	overflow: hidden;
 }
 .stats .bar {
-    box-sizing: border-box;
 	height: 35px;
 	
 	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
 	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
 	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
-}
-.stats .text {
-	border: 1px solid #000;
-	background: #fff;
-	cursor: default;
-	float: right;
-	font-size: 12px;
-	height: 16px;
-	padding: 0 0.4em;
 }
 .stats .hp .bar {
 	background: #EE7147;
@@ -49,4 +43,34 @@
 .stats .energy .bar {
 	background: #E9CA2D;
 	width: 30%;
+}
+.xp {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+	height: 1em;
+    background: #eee;
+	
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.xp .bar {
+	background: #E9CA2D;
+	width: 4.2%;
+	height: 100%;
+	
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.xp .grid {
+	position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	
+	background: transparent;
+	background-image: linear-gradient(90deg, transparent 99%, #2F3439);
+	background-size: 10% 100%;
 }
