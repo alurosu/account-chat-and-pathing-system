@@ -14,7 +14,11 @@ body {
     display: flex;
 	
 	font-size: 20px;
+	
 	font-family: arial;
+	background: #2B2B2B;
+	color: #fff;
+	text-shadow: 1px 1px #000;
 }
 .content {
 	max-width: 1000px;
@@ -23,9 +27,10 @@ body {
 .content > div {
 	display: none;
 	max-width: 300px;
-	padding: 1em 1.5em;
-	border: 1px solid #ccc;
-	background: #fff;
+	padding: 1em 1.5em;	
+	background: #2F3439;
+	border-radius: 0.3em;
+	border-top: 2px solid #40474E;
 }
 .content > div.active {
 	display: block;
@@ -33,23 +38,22 @@ body {
 .content .title {
 	margin-bottom: 0.5em;
     text-align: center;
-    border: 1px solid #ccc;
     padding: 0.5em;
-    margin: -2.25em auto 1em auto;
-    background: #fff;
-    width: 50%;
+	color: #E7E7E7;
+	font-size: 1.2em;
 }
 .content input[type=text], .content input[type=password], .content input[type=email] {
-	background: #fbfbfb;
+	background: #eee;
     width: 100%;
 	font-size: 1em;
-    padding: 0.5em;
+    padding: 0.7em 0.5em;
     margin: 0.3em 0;
-	border: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+	border: 0;
+	border-bottom: 2px solid #485058;
     box-sizing: border-box;
     color: #32373c;
     outline: 0;
+	border-radius: 0.3em;
 }
 .content .separator{
 	margin-bottom: 0.5em;
@@ -60,12 +64,15 @@ body {
 .content button {
 	font-size: 1em;
 	float: right;
-    padding: 0.3em 1em;
-	background: #fbfbfb;
-	border: 1px solid #ccc;
+    padding: 0.5em 1em;
+	border: 0;
 	cursor: pointer;
 	outline: none;
-	height: 2em;
+	height: 2.3em;
+	border-radius: 0.3em;
+    background: #EE7147;
+    color: #eee;
+    border-top: 2px solid #F58159;
 }
 .content button.loading {
 	cursor: default;
@@ -96,7 +103,7 @@ body {
 }
 
 .content .error {
-	color: #F66358;
+	color: #E5C453;
 	font-size: 0.7em;
     max-width: 60%;
     float: left;
@@ -114,4 +121,10 @@ body {
 }
 .content .menu li a {
     text-decoration: none;
+	color: #eee;
+}
+.shadow {
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
 }

@@ -4,6 +4,9 @@
 	background: #2F3439;
 	border-radius: 0.3em;
 	overflow: hidden;
+	
+	display: flex;	
+	flex-direction: column;
 }
 .chat .filters {
 	padding: 0;
@@ -25,15 +28,13 @@
 }
 .chat .messages {
 	padding: 0.6em 0.6em 0 0.6em;
-	min-height: 150px;
+	height: 100%;
 	
 	border-top: 1px solid #272B2F;
 	
 	display: flex;	
 	flex-direction: column-reverse;
-	flex-wrap: no-wrap;
 	overflow: hidden;
-	max-height: 250px;
 }
 .chat.selected .messages {
 	overflow-y: auto;
