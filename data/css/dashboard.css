@@ -95,11 +95,13 @@
 .menu .location {
 	display: inline-block;
 }
-.menu .location > div {
-	background: #eee;
-	float: left;
-	padding: 0.5em;
-    font-size: 1.25em;
-	color: #333;
+.menu .location .x, .menu .location .y {
+	padding: 0.3em;
     text-shadow: none;
+	display: inline-block;
+    border-bottom: 2px solid #eee;
+}
+.menu .location .title {
+	font-size: 0.7em;
+	color: #A2A7A6;
 }
