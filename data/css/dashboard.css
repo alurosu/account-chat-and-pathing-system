@@ -93,7 +93,9 @@
 	float: right;
 }
 .menu .location {
-	display: inline-block;
+	display: block;
+    width: 20%;
+    margin: auto;
 }
 .menu .location .x, .menu .location .y {
 	padding: 0.3em;

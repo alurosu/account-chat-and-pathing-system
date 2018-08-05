@@ -2,7 +2,11 @@ $(document).ready(function(){
 	console.log("map.js: loaded");
 	
 	$('body').on('click', '.map .options .close', function(){
-		$('.map').fadeOut(0);
+		$('.map').removeClass('open');
+	});
+	
+	$('body').on('click', '.menu .toggle-map', function(){
+		$('.map').addClass('open');
 	});
 });
 	
