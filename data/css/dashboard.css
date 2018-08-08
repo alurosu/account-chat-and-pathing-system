@@ -2,8 +2,20 @@
 	display: flex;
 	height: 100%;
 }
+.dashboard > .content {
+	margin: 1em 0;
+	width: 100%;
+	display: flex;
+}
+.dashboard > .content > div {
+	padding: 1em;
+	border-top: 2px solid #40474E;
+	background: #2F3439;
+	border-radius: 0.3em;
+	height: 100%;
+	width: 100%;
+}
 .profile {
-	font-size: 15px;
 	padding: 1em;
 	border-top: 2px solid #40474E;
 	background: #2F3439;
@@ -12,7 +24,6 @@
 	margin: 1em;
 }
 .profile .username{
-	font-size: 20px;
     padding-bottom: 0.4em;
 }
 .profile .picture {
