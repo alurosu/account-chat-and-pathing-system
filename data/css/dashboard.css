@@ -27,12 +27,13 @@
 .profile .username{
 	text-align: center;
     padding: 0.8em 1em;
-    border-bottom: 1px solid #272B2F;
 }
 .profile .avatar {
 	width: 100%;
 	padding: 1em;
 	background: #2F2F2F;
+    border-top: 1px solid #272B2F;
+    border-bottom: 1px solid #272B2F;
 }
 .profile .title {
 	padding-top: 0.5em;
@@ -54,6 +55,7 @@
 }
 .stats .bar {
 	height: 35px;
+	width: 0;
 	
 	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
 	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
@@ -61,11 +63,9 @@
 }
 .stats .hp .bar {
 	background: #EE7147;
-	width: 50%;
 }
 .stats .energy .bar {
 	background: #E9CA2D;
-	width: 30%;
 }
 .xp {
 	height: 1em;
@@ -77,7 +77,7 @@
 }
 .xp .bar {
 	background: #E9CA2D;
-	width: 4.2%;
+	width: 0;
 	height: 100%;
 	
 	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
