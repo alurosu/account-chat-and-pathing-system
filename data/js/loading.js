@@ -23,11 +23,11 @@ function doLoading() {
 				$('.xp .data-hover-content').html("Experience: " + data.xp + " / " + data.max_xp + " (" + 100*data.xp/data.max_xp + "%)");
 				$('.xp .bar').css({width: (100*data.xp/data.max_xp+"%")});
 				
-				$('.profile .stats .hp .data-hover-content').html("Health: " + data.hp + " / " + data.max_hp);
-				$('.profile .stats .hp .bar').css({width: (100*data.hp/data.max_hp+"%")});
+				$('.profile .hp .data-hover-content').html("Health: " + data.hp + " / " + data.max_hp);
+				$('.profile .hp .bar').css({width: (100*data.hp/data.max_hp+"%")});
 				
-				$('.profile .stats .energy .data-hover-content').html("Energy: " + data.energy + " / " + data.max_energy);
-				$('.profile .stats .energy .bar').css({width: (100*data.energy/data.max_energy+"%")});
+				$('.profile .energy .data-hover-content').html("Energy: " + data.energy + " / " + data.max_energy);
+				$('.profile .energy .bar').css({width: (100*data.energy/data.max_energy+"%")});
 				
 				$('.menu .location .x span').html(data.x);
 				$('.menu .location .y span').html(data.y);

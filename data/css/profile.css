@@ -1,0 +1,56 @@
+.profile {
+	border-top: 2px solid #40474E;
+	background: #2F3439;
+	border-radius: 0.3em;
+	width: 50%;
+	padding-bottom: 0.5em;
+	margin: 1em;
+	align-self: flex-start;
+}
+.profile .username{
+	text-align: center;
+    padding: 0.8em 1em;
+}
+.profile .avatar {
+	width: 100%;
+	padding: 1em;
+	background: #2F2F2F;
+    border-top: 1px solid #272B2F;
+    border-bottom: 1px solid #272B2F;
+}
+.profile .title {
+	padding-top: 0.5em;
+	text-align: center;
+}
+.profile .level {
+	text-align: center;    
+	font-size: 0.7em;
+    color: #A2A7A6;
+	padding-bottom: 0.5em;
+}
+.profile .currency {
+	padding: 1em 0.5em 0 0.5em;
+	text-align: right;
+}
+.profile .hp, .profile .energy {
+	height: 35px;
+	margin: 0.4em 0.5em 0 0.5em;
+	background: #D0D3D2;
+	border-radius: 0.3em;
+	border-bottom: 2px solid #485058;
+	overflow: hidden;
+}
+.profile .bar {
+	height: 35px;
+	width: 0;
+	
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+.profile .hp .bar {
+	background: #EE7147;
+}
+.profile .energy .bar {
+	background: #E9CA2D;
+}

@@ -140,7 +140,7 @@ function getMessages() {
 		if (!data.error) {
 			gmID = data.id;
 			if (data.messages)
-				for (i=0; i<=data.messages.length; i++)
+				for (i=0; i<data.messages.length; i++)
 					addMessage(data.messages[i].user, data.messages[i].text, data.messages[i].type);
 		} else addMessage('System', data.error, 'system');
 	});

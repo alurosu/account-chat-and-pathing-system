@@ -23,7 +23,7 @@ if (!empty($_GET['text']) && !empty($_GET['type'])) {
 			$user = $row['user'];
 			$target = '';
 			if ($type == 'local')
-				$target = $row['x'].$row['y'];
+				$target = $row['x'].'-'.$row['y'];
 			
 			$sql = "DELETE FROM chat WHERE time < ".(time()-60)."; ";
 			$sql .= "INSERT INTO chat (user, text, type, target, time) VALUES ('$user', '$text', '$type', '$target', '".time()."')";

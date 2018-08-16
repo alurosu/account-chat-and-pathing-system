@@ -4,14 +4,17 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>MMO</title>
-	<link rel="stylesheet" href="data/css/layout.css" />
+	<title>The Game</title>
+	<link rel="stylesheet" href="data/css/main.css" />
+	<link rel="stylesheet" href="data/css/profile.css" />
+	<link rel="stylesheet" href="data/css/stats.css" />
 	<link rel="stylesheet" href="data/css/map.css" />
 	<link rel="stylesheet" href="data/css/chat.css" />
-	<link rel="stylesheet" href="data/css/dashboard.css" />
 
 	<script type="text/javascript" src="data/js/jquery.js"></script>
 	<script type="text/javascript" src="data/js/main.js"></script>
+	<script type="text/javascript" src="data/js/profile.js"></script>
+	<script type="text/javascript" src="data/js/stats.js"></script>
 	<script type="text/javascript" src="data/js/map.js"></script>
 	<script type="text/javascript" src="data/js/chat.js"></script>
 	
@@ -24,6 +27,9 @@
 			<div class="bar"><div></div></div>
 			<div class="text">Loading ..</div>
 		</div>
+	</div>
+	<div class="background">
+		<div title="MMO">MMO</div>
 	</div>
 	<div class="menu shadow">
 		<ul class="right">
@@ -47,9 +53,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="background">
-		<div title="MMO">MMO</div>
-	</div>
 	<div class="dashboard">
 		<div class="profile shadow">
 			<div class="username">alurosu</div>
@@ -57,15 +60,16 @@
 			<div class="title">The Explorer</div>
 			<div class="level">Level: -</div>
 			
-			<div class="stats">
-				<div class="hp" data-hover="on">
-					<div class="data-hover-content">Health - / -</div>
-					<div class="bar"></div>
-				</div>
-				<div class="energy" data-hover="on">
-					<div class="data-hover-content">Energy - / -</div>
-					<div class="bar"></div>
-				</div>
+			<div class="hp" data-hover="on">
+				<div class="data-hover-content">Health - / -</div>
+				<div class="bar"></div>
+			</div>
+			<div class="energy" data-hover="on">
+				<div class="data-hover-content">Energy - / -</div>
+				<div class="bar"></div>
+			</div>
+			<div class="currency">
+				<div class="gold">Gold: 3</div>
 			</div>
 		</div>
 		<div class="content">	

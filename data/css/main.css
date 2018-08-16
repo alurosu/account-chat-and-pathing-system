@@ -1,3 +1,86 @@
+html, body {
+	font-family: arial;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+}
+body {
+	background: #2B2B2B;
+	color: #fff;
+	text-shadow: 1px 1px #000;
+	display: flex;    
+	flex-direction: column;
+}
+body * {
+    box-sizing: border-box;
+}
+.map {
+	z-index: 30;
+}
+.data-hover {
+	background: #333333;
+	border: 1px solid #000;
+	left: 100%;
+	padding: 10px;
+	position: absolute;
+	top: 100%;
+	z-index: 40;
+}
+.data-hover-content {
+	display: none;
+}
+.loading {
+	background: #2B2B2B;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	z-index: 100;
+}
+.loading .content {
+	width: 100%;
+	left: 0;
+	bottom: 2em;
+	position: absolute;
+}
+.loading .content > * {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.loading .bar {
+	border: 1px solid #000;
+	background: #fff;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: 0.5em;
+	height: 1.5em;
+	
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.loading .bar div {
+	background: url(../img/loading_bar.png);
+	height: 100%;
+	width: 0;
+	
+	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.shadow {
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+}
+.clear {
+	clear: both;
+}
 .dashboard {
 	display: flex;
 	height: 100%;
@@ -15,58 +98,7 @@
 	height: 100%;
 	width: 100%;
 }
-.profile {
-	border-top: 2px solid #40474E;
-	background: #2F3439;
-	border-radius: 0.3em;
-	width: 50%;
-	padding-bottom: 0.5em;
-	margin: 1em;
-	align-self: flex-start;
-}
-.profile .username{
-	text-align: center;
-    padding: 0.8em 1em;
-}
-.profile .avatar {
-	width: 100%;
-	padding: 1em;
-	background: #2F2F2F;
-    border-top: 1px solid #272B2F;
-    border-bottom: 1px solid #272B2F;
-}
-.profile .title {
-	padding-top: 0.5em;
-	text-align: center;
-}
-.profile .level {
-	text-align: center;    
-	font-size: 0.7em;
-    color: #A2A7A6;
-	padding-bottom: 0.5em;
-}
-.stats .hp, .stats .energy {
-	height: 35px;
-	margin: 0.4em 0.5em 0 0.5em;
-	background: #D0D3D2;
-	border-radius: 0.3em;
-	border-bottom: 2px solid #485058;
-	overflow: hidden;
-}
-.stats .bar {
-	height: 35px;
-	width: 0;
-	
-	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
-	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
-}
-.stats .hp .bar {
-	background: #EE7147;
-}
-.stats .energy .bar {
-	background: #E9CA2D;
-}
+
 .xp {
 	height: 1em;
     background: #eee;
@@ -126,6 +158,7 @@
     text-shadow: none;
 	display: inline-block;
     border-bottom: 2px solid #eee;
+	cursor: default;
 }
 .menu .location .title {
 	font-size: 0.7em;

@@ -6,7 +6,7 @@ $(document).ready(function(){
 	});
 	
 	$('body').on('click', '.menu .toggle-map', function(){
-		$('.map').addClass('open');
+		$('.map').toggleClass('open');
 	});
 });
 	
