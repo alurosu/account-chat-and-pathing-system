@@ -1,0 +1,6 @@
+.inventory {
+	display: none;
+}
+.inventory.open {
+	display: flex;
+}

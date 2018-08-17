@@ -16,9 +16,6 @@ body {
 body * {
     box-sizing: border-box;
 }
-.map {
-	z-index: 30;
-}
 .data-hover {
 	background: #333333;
 	border: 1px solid #000;
@@ -91,7 +88,7 @@ body * {
 	display: flex;
 }
 .dashboard > .content > div {
-	padding: 1em;
+	padding: 0;
 	border-top: 2px solid #40474E;
 	background: #2F3439;
 	border-radius: 0.3em;

@@ -1,0 +1,10 @@
+.stats {
+	display: none;
+}
+.stats.open {
+	display: block;
+}
+.stats .header {
+    border-bottom: 1px solid #272B2F;
+	padding: 0.8em;
+}

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="data/css/main.css" />
 	<link rel="stylesheet" href="data/css/profile.css" />
 	<link rel="stylesheet" href="data/css/stats.css" />
+	<link rel="stylesheet" href="data/css/inventory.css" />
 	<link rel="stylesheet" href="data/css/map.css" />
 	<link rel="stylesheet" href="data/css/chat.css" />
 
@@ -15,6 +16,7 @@
 	<script type="text/javascript" src="data/js/main.js"></script>
 	<script type="text/javascript" src="data/js/profile.js"></script>
 	<script type="text/javascript" src="data/js/stats.js"></script>
+	<script type="text/javascript" src="data/js/inventory.js"></script>
 	<script type="text/javascript" src="data/js/map.js"></script>
 	<script type="text/javascript" src="data/js/chat.js"></script>
 	
@@ -37,8 +39,8 @@
 			<li>Logout</li>
 		</ul>
 		<ul class="left">
-			<li>Stats</li>
-			<li>Inventory</li>
+			<li class="toggle-stats">Stats</li>
+			<li class="toggle-inventory">Inventory</li>
 			<li class="toggle-map">Map</li>
 		</ul>
 		<div class="location">
@@ -72,7 +74,29 @@
 				<div class="gold">Gold: 3</div>
 			</div>
 		</div>
-		<div class="content">	
+		<div class="content">
+			<div class="stats shadow open">
+				<div class="header">
+					<div class="title">Character stats:</div>
+				</div>
+				<div class="points">
+					Available points: <span>20</span>
+				</div>
+				Strength:
+				<br /><br />
+				<button class="add10xp">Add 10 XP</button>
+				<br />
+				<br />
+				<button class="add10hp">Add 10 HP</button>
+				<button class="remove10hp">Remove 10 HP</button>
+				<br />
+				<br />
+				<button class="add2ene">Add 2 Energy</button>
+				<button class="remove2ene">Remove 2 Energy</button>
+			</div>
+			<div class="inventory shadow">
+				Inventory
+			</div>
 		</div>
 	</div>
 

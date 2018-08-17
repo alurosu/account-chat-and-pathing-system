@@ -1,11 +1,12 @@
 $(document).ready(function(){
-	console.log("map.js: loaded");
+	console.log("5. map.js: loaded");
 	
 	$('body').on('click', '.map .options .close', function(){
 		$('.map').removeClass('open');
 	});
 	
 	$('body').on('click', '.menu .toggle-map', function(){
+		$('.dashboard .content .open').not('.map').removeClass('open');
 		$('.map').toggleClass('open');
 	});
 });

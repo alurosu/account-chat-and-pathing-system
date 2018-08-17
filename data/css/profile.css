@@ -6,6 +6,8 @@
 	padding-bottom: 0.5em;
 	margin: 1em;
 	align-self: flex-start;
+    overflow: auto;
+    max-height: 100%;
 }
 .profile .username{
 	text-align: center;

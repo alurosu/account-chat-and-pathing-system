@@ -1,6 +1,6 @@
 var screenWidth, screenHeight;
 $(document).ready(function(){
-	console.log("main.js: loaded");	
+	console.log("1. main.js: loaded");	
 	screenWidth = $(window).width();
 	screenHeight = $(window).height();
 	

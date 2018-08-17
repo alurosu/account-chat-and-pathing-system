@@ -1,7 +1,7 @@
 var gmID;
 var firstSpace = true;
 $(document).ready(function(){
-	console.log("chat.js: loaded");
+	console.log("6. chat.js: loaded");
 	setInterval(getMessages, 1000);
 	
 	// highlight chat box on use
