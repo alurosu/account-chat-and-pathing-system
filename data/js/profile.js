@@ -29,8 +29,8 @@ function data2profile(data) {
 	$('.xp .bar').attr('data-mxp', data.max_xp);
 	refreshXP();
 	
-	$('.profile .hp .bar').attr('data-hp', data.hp);
-	$('.profile .hp .bar').attr('data-mhp', data.max_hp);
+	$('.profile .health .bar').attr('data-hp', data.hp);
+	$('.profile .health .bar').attr('data-mhp', data.max_hp);
 	refreshHP();
 	
 	$('.profile .energy .bar').attr('data-ene', data.energy);
@@ -43,6 +43,8 @@ function data2profile(data) {
 
 function updateXP(diff) {
 	$('.xp .bar').attr('data-xp', parseInt($('.xp .bar').attr('data-xp')) + diff);
+	
+	floatText(diff + ' xp', $('.xp .bar'));
 	refreshXP();
 }
 
@@ -55,8 +57,8 @@ function refreshXP() {
 }
 
 function updateHP(diff) {
-	var result = parseInt($('.profile .hp .bar').attr('data-hp')) + diff;
-	var mhp = parseInt($('.profile .hp .bar').attr('data-mhp'));
+	var result = parseInt($('.profile .health .bar').attr('data-hp')) + diff;
+	var mhp = parseInt($('.profile .health .bar').attr('data-mhp'));
 	
 	if (result<=0) 
 		result = 0;
@@ -64,16 +66,18 @@ function updateHP(diff) {
 	if (result > mhp)
 		result = mhp;
 	
-	$('.profile .hp .bar').attr('data-hp', result);
+	$('.profile .health .bar').attr('data-hp', result);
+	
+	floatText(diff+" health", $('.profile .health .bar'), 'right');
 	refreshHP();
 }
 
 function refreshHP() {
-	var hp = $('.profile .hp .bar').attr('data-hp');
-	var mhp = $('.profile .hp .bar').attr('data-mhp');
+	var hp = $('.profile .health .bar').attr('data-hp');
+	var mhp = $('.profile .health .bar').attr('data-mhp');
 	
-	$('.profile .hp .data-hover-content').html("Health: " + hp + " / " + mhp);
-	$('.profile .hp .bar').animate({width: (100*hp/mhp+"%")});
+	$('.profile .health .data-hover-content').html("Health: " + hp + " / " + mhp);
+	$('.profile .health .bar').animate({width: (100*hp/mhp+"%")});
 }
 
 function updateENE(diff) {
@@ -88,6 +92,8 @@ function updateENE(diff) {
 		result = mene;
 	
 	$('.profile .energy .bar').attr('data-ene', result);
+	
+	floatText(diff+" energy", $('.profile .energy .bar'), 'right');
 	refreshENE();
 }
 

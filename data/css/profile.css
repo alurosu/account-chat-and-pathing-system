@@ -34,7 +34,7 @@
 	padding: 1em 0.5em 0 0.5em;
 	text-align: right;
 }
-.profile .hp, .profile .energy {
+.profile .health, .profile .energy {
 	height: 35px;
 	margin: 0.4em 0.5em 0 0.5em;
 	background: #D0D3D2;
@@ -50,7 +50,7 @@
 	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
 	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.5);
 }
-.profile .hp .bar {
+.profile .health .bar {
 	background: #EE7147;
 }
 .profile .energy .bar {

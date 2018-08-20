@@ -28,6 +28,11 @@ body * {
 .data-hover-content {
 	display: none;
 }
+.data-float {
+	font-weight: bold;
+	position: absolute;
+	z-index: 50;
+}
 .loading {
 	background: #2B2B2B;
 	height: 100%;

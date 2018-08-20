@@ -82,3 +82,29 @@ function server(path, callback) {
 		}
 	});
 }
+
+function floatText(text, target, position) {
+	c = "#FFF";
+	x = $(window).width()/2;
+	y = $(window).height()/2;
+	
+	if (target) {
+		c = target.css('background-color');
+		var offset = target.offset();
+		x = offset.left + target.width();
+		y = offset.top - target.height();
+		
+		if (position && position == "right") {
+			x = offset.left + target.parent().width() + 5;
+			y = offset.top;
+		}
+	}
+	
+	$('.data-float')
+		.css({left: x+"px", top: y+"px", color: c})
+		.html(text)
+		.fadeIn(0)
+		.animate({top: (y-20)+"px"}, function(){
+			$(this).fadeOut(0);
+		});
+}
