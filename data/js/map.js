@@ -17,9 +17,9 @@ function getMapContent(callback) {
 		for (row = 0; row < map.length; row++) {
 			content += '<div class="x">';
 			for (col = 0; col < map[row].length; col++) {
-				bgx = - 64 * (map[row][col].x-1);
-				bgy = - 64 * (map[row][col].y-1);
-				content += '<div class="y" style="background-position: '+bgx+'px '+bgy+'px;">';
+				bgx = - 32 * (map[row][col].x-1);
+				bgy = - 32 * (map[row][col].y-1);
+				content += '<div class="y" style="background-position: '+bgy+'px '+bgx+'px;">';
 					content += '<div class="element" data-hover="on">';
 						content += '<div class="data-hover-content">12 players</div>';
 					content += '</div>';

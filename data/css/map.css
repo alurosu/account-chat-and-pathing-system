@@ -24,26 +24,26 @@
 	width: 30px;
 }
 .map .content {
-	background: #fff;
+	background: #296984;
     border: 1px solid #000;
 	height: 100%;
 	width: 100%;
     overflow: hidden;
 }
 .map .x {
-    height: 64px;
+    height: 32px;
 	overflow: hidden;
 }
 .map .y {
-	background: url("../img/world128.png");
+	background: url("../img/tileset.png");
 	background-repeat: no-repeat;
 	display: inline-block;
     text-align: center;
-    width: 64px;
+    width: 32px;
 }
 .map .y .element {
-	height: 64px;
-    width: 64px;
+	height: 32px;
+    width: 32px;
 }
 .map .y .element:hover {
 	border: 1px solid #000;
