@@ -6,6 +6,7 @@ A lot of scripts and stylings you find here can be used for different purposes. 
 - account: login, register
 - chat: send, receive, empty db
 - profile: load stats, add/remove hp, add/remove energy, add xp
+- map: draw based on x,y and vision
 ## Dev URL
 [dev.alurosu.com/mmo](http://dev.alurosu.com/mmo/)
 ## Contact

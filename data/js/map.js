@@ -8,27 +8,41 @@ $(document).ready(function(){
 	$('body').on('click', '.menu .toggle-map', function(){
 		$('.dashboard .content .open').not('.map').removeClass('open');
 		$('.map').toggleClass('open');
+		getMapContent();
 	});
 });
-	
+
 function getMapContent(callback) {
 	var content = '';
-	server('map.php', function(map){
-		for (row = 0; row < map.length; row++) {
+	server('map/map.php', function(data){
+		console.log(data);
+		var c = document.createElement('canvas'),        
+			ctx = c.getContext('2d'),
+			cw = c.width = data.draw.width,
+			ch = c.height = data.draw.width;
+		
+		ctx.drawImage(document.getElementById("map"),
+			data.draw.x,
+			data.draw.y,
+			data.draw.width,
+			data.draw.width,
+			0,
+			0,
+			data.draw.width,
+			data.draw.width);
+		
+		for (row = 0; row < data.map.length; row++) {
 			content += '<div class="x">';
-			for (col = 0; col < map[row].length; col++) {
-				bgx = - 32 * (map[row][col].x-1);
-				bgy = - 32 * (map[row][col].y-1);
-				content += '<div class="y" style="background-position: '+bgy+'px '+bgx+'px;">';
-					content += '<div class="element" data-hover="on">';
-						content += '<div class="data-hover-content">12 players</div>';
-					content += '</div>';
+			for (col = 0; col < data.map[row].length; col++) {
+				content += '<div class="y" data-hover="on">';
+					content += '<div class="data-hover-content">'+data.map[row][col].x+'-'+data.map[row][col].y+'</div>';
 				content += '</div>';
 			}
 			content += '</div>';
 		}
 		
-		$('.map .content').html(content);
-		callback();
+		$('.map .content').css({background : 'url(' + c.toDataURL() + ')'}).html(content);
+		if (callback)
+			callback();
 	});
 }
