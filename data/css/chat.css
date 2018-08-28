@@ -1,12 +1,14 @@
 .chat {
-	width: 50%;
+	position: fixed;
+	right: 0;
+	bottom: 1.5em;
+	width: 25%;
+	z-index: 10;
+	
 	margin: 1em;
 	background: #2F3439;
 	border-radius: 0.3em;
 	overflow: hidden;
-	
-	display: flex;	
-	flex-direction: column;
 }
 .chat .filters {
 	padding: 0;
@@ -27,7 +29,7 @@
 }
 .chat .messages {
 	padding: 0.6em 0.6em 0 0.6em;
-	height: 100%;
+	max-height: 400px;
 	
 	border-top: 1px solid #272B2F;
 	

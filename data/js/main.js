@@ -48,7 +48,7 @@ $(document).ready(function(){
 function loadPart(path, callback, into) {
 	var response;
 	if (!into)
-		into = '.dashboard';
+		into = 'body';
 	$.ajax({ type: "GET",   
 		url: path,
 		success : function(text) {

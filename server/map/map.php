@@ -17,9 +17,9 @@ while($result = mysqli_fetch_array($query))
     $resultSet[] = $result;
 }
 */
-$x = 50;
-$y = 50;
-$vision = 7;
+$x = 49;
+$y = 60;
+$vision = 2;
 
 $resultSet = [];
 
@@ -34,9 +34,8 @@ for ($j=$y-$vision; $j<=$y+$vision; $j++) {
 	$resultSet['map'][] = $row;
 }
 
-$resultSet['draw']['x'] = 32*($x-$vision);
-$resultSet['draw']['y'] = 32*($y-$vision);
-$resultSet['draw']['width'] = 32*(2*$vision+1);
+$resultSet['draw']['x'] = 32*$x;
+$resultSet['draw']['y'] = 32*$y;
 
 if (!empty($_GET['callback']))
 	echo $_GET['callback'] . '(' .json_encode($resultSet) . ')';

@@ -1,32 +1,15 @@
 .map {
-	display: none;
-}
-.map.open {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	
 	display: flex;
 }
-.map .center {
-	margin: auto;
-	width: auto;
-	height: auto;
-}
-.map .options {
-}
-.map .options .close {
-	background: #fff;
-	color: #000;
-	cursor: pointer;
-	font-family: arial;
-    font-size: 23px;
-	font-weight: bold;
-	height: 30px;
-	text-align: center;
-	width: 30px;
-}
 .map .content {
-    border: 1px solid #000;
-	height: 100%;
-	width: 100%;
-    overflow: hidden;
+	margin: auto;
 }
 .map .x {
     height: 32px;
@@ -37,6 +20,7 @@
     text-align: center;
     width: 32px;
 	height: 32px;
+	border: 1px solid #00000022;
 }
 .map .y:hover {
 	border: 1px solid #000;

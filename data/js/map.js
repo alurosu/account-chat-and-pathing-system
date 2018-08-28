@@ -1,35 +1,28 @@
 $(document).ready(function(){
 	console.log("5. map.js: loaded");
-	
-	$('body').on('click', '.map .options .close', function(){
-		$('.map').removeClass('open');
-	});
-	
-	$('body').on('click', '.menu .toggle-map', function(){
-		$('.dashboard .content .open').not('.map').removeClass('open');
-		$('.map').toggleClass('open');
-		getMapContent();
-	});
 });
 
 function getMapContent(callback) {
+	
+	var dw = $(document).width();
+	var dh = $(document).height();
 	var content = '';
 	server('map/map.php', function(data){
 		console.log(data);
 		var c = document.createElement('canvas'),        
 			ctx = c.getContext('2d'),
-			cw = c.width = data.draw.width,
-			ch = c.height = data.draw.width;
+			cw = c.width = dw,
+			ch = c.height = dh;
 		
 		ctx.drawImage(document.getElementById("map"),
-			data.draw.x,
-			data.draw.y,
-			data.draw.width,
-			data.draw.width,
+			data.draw.x-dw/2+32,
+			data.draw.y-dh/2+32,
+			dw,
+			dh,
 			0,
 			0,
-			data.draw.width,
-			data.draw.width);
+			dw,
+			dh);
 		
 		for (row = 0; row < data.map.length; row++) {
 			content += '<div class="x">';
@@ -41,7 +34,7 @@ function getMapContent(callback) {
 			content += '</div>';
 		}
 		
-		$('.map .content').css({background : 'url(' + c.toDataURL() + ')'}).html(content);
+		$('.map').css({background : 'url(' + c.toDataURL() + ')'}).find('.content').html(content);
 		if (callback)
 			callback();
 	});

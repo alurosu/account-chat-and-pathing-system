@@ -1,11 +1,15 @@
 .profile {
+	position: fixed;
+	left: 0;
+	top: 2.5em;
+	width: 20%;
+	z-index: 10;
+	
 	border-top: 2px solid #40474E;
 	background: #2F3439;
 	border-radius: 0.3em;
-	width: 50%;
 	padding-bottom: 0.5em;
 	margin: 1em;
-	align-self: flex-start;
     overflow: auto;
     max-height: 100%;
 }
@@ -14,11 +18,14 @@
     padding: 0.8em 1em;
 }
 .profile .avatar {
-	width: 100%;
 	padding: 1em;
 	background: #2F2F2F;
     border-top: 1px solid #272B2F;
     border-bottom: 1px solid #272B2F;
+	text-align: center;
+}
+.profile .avatar img {
+	width: 50%;
 }
 .profile .title {
 	padding-top: 0.5em;

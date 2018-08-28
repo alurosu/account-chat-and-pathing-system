@@ -28,7 +28,7 @@ function doLoading() {
 					console.log('map loaded');
 					updateLoadingBar();
 				});
-			}, ".dashboard > .content");
+			});
 			break;
 		case 2:
 			$('.loading .text').html('Loading chat');
