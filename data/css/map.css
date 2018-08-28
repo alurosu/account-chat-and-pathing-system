@@ -13,18 +13,45 @@
 }
 .map .x {
     height: 32px;
-	overflow: hidden;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.map .x:first-child {
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 .map .y {
 	display: inline-block;
     text-align: center;
     width: 32px;
 	height: 32px;
-	border: 1px solid #00000022;
+	vertical-align: top;
+	border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.map .y:first-child {
+	border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 .map .y:hover {
 	border: 1px solid #000;
 }
-#map {
-	display: none;
+.map .center {
+	border: 3px solid #2F3439;
+	color: #2F2F2F;
+	background: #E9CA2D;
+	background-image: url(http://dev.alurosu.com/mmo/data/img/character.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 90%;
+	
+	width: 45px;
+	height: 45px;
+	margin-top: -7px;
+	margin-left: -7px;
+	position: relative;
+	
+	border-radius: 50%;
+	text-shadow: none;
+	cursor: pointer;
+}
+.map .center:hover {
+	margin-top: -8px;
+	margin-left: -8px;
 }
