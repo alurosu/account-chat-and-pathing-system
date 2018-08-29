@@ -17,9 +17,9 @@ while($result = mysqli_fetch_array($query))
     $resultSet[] = $result;
 }
 */
-$x = 39;
-$y = 60;
-$vision = 5;
+$x = 49;
+$y = 40;
+$vision = 2;
 
 $resultSet = [];
 
@@ -29,8 +29,9 @@ for ($j=$y-$vision; $j<=$y+$vision; $j++) {
 		$col = [];
 		$col['x'] = $i;
 		$col['y'] = $j;
-		if ($x==$i && $y==$j)
+		if ($x==$i && $y==$j) {
 			$col['center'] = true;
+		}
 		$row[] = $col;
 	}
 	$resultSet['map'][] = $row;

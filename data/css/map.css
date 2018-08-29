@@ -10,13 +10,11 @@
 }
 .map .content {
 	margin: auto;
+	background: rgba(0, 0, 0, 0.1);
 }
 .map .x {
     height: 32px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-.map .x:first-child {
-	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	text-align: center;
 }
 .map .y {
 	display: inline-block;
@@ -24,13 +22,19 @@
     width: 32px;
 	height: 32px;
 	vertical-align: top;
-	border-right: 1px solid rgba(0, 0, 0, 0.2);
+	border: 1px dashed rgba(0, 0, 0, 0.2);
 }
-.map .y:first-child {
-	border-left: 1px solid rgba(0, 0, 0, 0.2);
+.map .hideGrid .y {
+	border: 1px dashed rgba(0, 0, 0, 0);
 }
-.map .y:hover {
-	border: 1px solid #000;
+.map .hideGrid {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.05);
+}
+.map .x .y:hover {
+	border: 3px solid #2F3439;
+	color: #2F2F2F;
+	background: #E9CA2D;
 }
 .map .center {
 	border: 3px solid #2F3439;
@@ -52,6 +56,9 @@
 	cursor: pointer;
 }
 .map .center:hover {
-	margin-top: -8px;
-	margin-left: -8px;
+	margin-top: -9px;
+	margin-left: -9px;
+}
+.map .header {
+	border-bottom: #272B2F;
 }

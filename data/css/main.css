@@ -93,6 +93,7 @@ body * {
 	
 	height: 1em;
     background: #eee;
+	border-top: 1px solid #2F3439;
 	
 	-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
