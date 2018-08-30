@@ -3,42 +3,37 @@ header('content-type: application/json; charset=utf-8');
 header("access-control-allow-origin: *");
 
 include("../mysql/open.php");
-/*
-if (isset($_GET["user"]))
-	$sql = "SELECT * FROM thankyou WHERE autor = '".$_GET["user"]."' ORDER BY RAND() LIMIT 0,1";
-	else
-	$sql = "SELECT * FROM thankyou ORDER BY RAND() LIMIT 0,1";
-	
-$query = mysqli_query($con, $sql);
+if (!empty($_GET['session'])) {
+	$session = $conn->real_escape_string($_GET['session']);
+	$sql = "SELECT  
+		s.x as x, 
+		s.y as y 
+		FROM users u, user_stats s 
+		WHERE u.id = s.user_id AND session = '$session'";
+	$result = $conn->query($sql);
 
-$resultSet = array();
-while($result = mysqli_fetch_array($query))
-{
-    $resultSet[] = $result;
-}
-*/
-$x = 49;
-$y = 40;
-$vision = 2;
+	if ($result->num_rows > 0) {
+		$row = $result->fetch_assoc();
+		
+		$x = $row['x'];
+		$y = $row['y'];
+		$vision = 8;
 
-$resultSet = [];
+		$resultSet = [];
 
-for ($j=$y-$vision; $j<=$y+$vision; $j++) {
-	$row = [];
-	for ($i=$x-$vision; $i<=$x+$vision; $i++) {
-		$col = [];
-		$col['x'] = $i;
-		$col['y'] = $j;
-		if ($x==$i && $y==$j) {
-			$col['center'] = true;
+		for ($j=$y-$vision; $j<=$y+$vision; $j++) {
+			$cost = [];
+			for ($i=$x-$vision; $i<=$x+$vision; $i++) {
+				$cost[] = $i+$j;
+			}
+			$resultSet['map']['graph'][] = $cost;
 		}
-		$row[] = $col;
-	}
-	$resultSet['map'][] = $row;
-}
+		$resultSet['map']['start']['x'] = $resultSet['map']['start']['y'] = $vision;
 
-$resultSet['draw']['x'] = 32*$x;
-$resultSet['draw']['y'] = 32*$y;
+		$resultSet['draw']['x'] = 32*$x;
+		$resultSet['draw']['y'] = 32*$y;
+	} else $resultSet['login'] = 'true';
+} else $resultSet['login'] = 'true';
 
 if (!empty($_GET['callback']))
 	echo $_GET['callback'] . '(' .json_encode($resultSet) . ')';
