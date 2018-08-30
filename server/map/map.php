@@ -17,7 +17,7 @@ if (!empty($_GET['session'])) {
 		
 		$x = $row['x'];
 		$y = $row['y'];
-		$vision = 8;
+		$vision = 9;
 
 		$resultSet = [];
 

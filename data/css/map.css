@@ -37,13 +37,14 @@
 	background: #E9CA2D;
 }
 .map .y.path {
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.4);
 }
 .map .y.target {
 	border: 3px solid #2F3439;
 	background: #E9CA2D;
 	cursor: pointer;
 }
+
 .map .center {
 	border: 3px solid #2F3439;
 	color: #2F2F2F;

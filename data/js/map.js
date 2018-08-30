@@ -10,17 +10,6 @@ $(document).ready(function(){
 		e.stopPropagation();
 	});
 	
-	$('body').on('mouseenter', '.map .y', function(){
-		$('.target').removeClass('target');
-		$(this).addClass('target');
-		var x = $(this).data('x');
-		var y = $(this).data('y');
-		
-		graphEnd = graph.grid[y][x];
-		var result = astar.search(graph, graphStart, graphEnd);
-		drawMapPath(result);
-	});
-	
 	$('body').on('click', '.map .y', function(){
 		$('.target').removeClass('target');
 		$(this).addClass('target');
@@ -29,7 +18,7 @@ $(document).ready(function(){
 		
 		graphEnd = graph.grid[y][x];
 		var result = astar.search(graph, graphStart, graphEnd);
-		drawMapPath(result);
+		drawMapPath(result, true);
 	});
 });
 
