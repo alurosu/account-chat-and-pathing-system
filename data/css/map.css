@@ -1,10 +1,6 @@
 .map {
-	position: fixed;
-	left: 0;
-	top: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 0;
 	
 	display: flex;
 }
@@ -49,7 +45,7 @@
 	border: 3px solid #2F3439;
 	color: #2F2F2F;
 	background: #E9CA2D;
-	background-image: url(http://dev.alurosu.com/mmo/data/img/character.png);
+	background-image: url('../img/character.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 90%;
@@ -70,4 +66,77 @@
 }
 .map .header {
 	border-bottom: #272B2F;
+}
+
+.map .world {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 50;
+	background: rgba(0, 0, 0, 0.4);
+}
+.map .world.open {
+	display: flex;
+}
+.map .world > div {
+    border-top: 2px solid #40474E;
+	background: #2F3439;
+    border-radius: 0.3em;
+	margin: auto;
+	height: 95%;
+}
+.map .world .preview {
+	height: 100%;
+	background-image: url('../img/map/map.png');
+	background-size: 110%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.map .world .header div {
+    padding: 0.5em 1em;
+}
+
+.map .popup {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 40;
+	
+	background: #2F2F2F;
+	border-top: 2px solid #40474E;
+}
+.map .popup .header {
+	text-align: center;
+    padding: 0.8em 1em;
+    
+	background: #2F3439;
+    border-bottom: 1px solid #272B2F;
+}
+.map .popup .cost {
+	padding: 0.8em;
+}
+.map .popup .action {
+	text-align: center;
+	padding: 0.8em;
+	
+	background: #2F3439;
+    border-top: 1px solid #272B2F;
+}
+.map .popup button {
+	padding: 0.7em 1.5em;
+	outline: 0;
+	border-radius: 0.3em;
+	font-weight: bold;
+	font-size: 0.8em;
+	cursor: pointer;
+	
+	border: 0;
+	background: #E9CA2D;
+	color: #000;
+}
+.map .popup button:hover {
+	background: #D0D3D2;
 }

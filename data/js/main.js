@@ -39,7 +39,7 @@ $(document).ready(function(){
 				$('.chat').addClass('selected');
 				$('.chat .send textarea').focus();
 			} else if(e.keyCode == 109 || e.keyCode == 77) { // m or M
-				$('.map').toggleClass('open');
+				$('.map .world').toggleClass('open');
 			}			
 		}
 	});

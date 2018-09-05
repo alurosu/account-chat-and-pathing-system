@@ -8,8 +8,7 @@ html, body {
 }
 body {
 	background: #2B2B2B;
-	color: #fff;
-	text-shadow: 1px 1px #000;
+	color: #eee;
 	display: flex;    
 	flex-direction: column;
 }
@@ -32,6 +31,7 @@ body * {
 	font-weight: bold;
 	position: absolute;
 	z-index: 50;
+	text-shadow: 1px 1px #000;
 }
 .loading {
 	background: #2B2B2B;
@@ -136,8 +136,12 @@ body * {
 .menu ul li {
 	list-style: none;
 	display: inline-block;
-	padding: 0.75em 1em;
+	padding: 0.7em 1em;
 	cursor: pointer;
+    border-bottom: 2px solid #2F3439;
+}
+.menu ul li:hover {
+    border-bottom: 2px solid #eee;
 }
 .menu .left {
 	float: left;

@@ -32,6 +32,9 @@ if (!empty($_GET['session'])) {
 
 		$resultSet['draw']['x'] = 32*$x;
 		$resultSet['draw']['y'] = 32*$y;
+		$resultSet['x'] = $x;
+		$resultSet['y'] = $y;
+		
 	} else $resultSet['login'] = 'true';
 } else $resultSet['login'] = 'true';
 

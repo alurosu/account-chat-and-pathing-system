@@ -5,6 +5,10 @@ var graphEnd;
 $(document).ready(function(){
 	console.log("5. map.js: loaded");
 	
+	$('body').on('click', '.menu .toggle-map', function(e){
+		$('.map .world').toggleClass('open');
+	});
+	
 	$('body').on('click', '.map .center', function(e){
 		$('.map .content').toggleClass('hideGrid');
 		e.stopPropagation();
@@ -30,18 +34,22 @@ function getMapContent(callback) {
 		graph = new Graph(data.map.graph);
 		graphStart = graph.grid[data.map.start.y][data.map.start.x];
 		
+		var minX = data.x - (data.map.graph.length-1)/2;
+		var minY = data.y - (data.map.graph.length-1)/2;
+		
 		for (row = 0; row < data.map.graph.length; row++) {
 			content += '<div class="x">';
 			for (col = 0; col < data.map.graph[row].length; col++) {
 				content += '<div class="y" data-x="'+col+'" data-y="'+row+'">';
-					if (data.map.start.x == col && data.map.start.y == row)
-						content += '<div class="center shadow"></div>';
+				if (data.map.start.x == col && data.map.start.y == row) {
+					content += '<div class="center shadow"></div>';
+				}
 				content += '</div>';
 			}
 			content += '</div>';
 		}
 		
-		$('.map .content').html(content);
+		$('.map .content').attr('data-x', minX).attr('data-y', minY).html(content);
 		if (callback)
 			drawMap(data.draw.x, data.draw.y, callback);
 		else 
