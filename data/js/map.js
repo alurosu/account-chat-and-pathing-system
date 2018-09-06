@@ -109,14 +109,15 @@ function drawMapPath(path) {
 		s+= path[i].weight;
 	}
 	
-	updateMapPopup(s);
+	updateMapPopup(path.length, s);
 }
 
-function updateMapPopup(cost) {
+function updateMapPopup(length, cost) {
 	var x = $('.map .target').attr('data-x');
 	var y = $('.map .target').attr('data-y');
 	
 	$('.map .popup .coord span').html(x+', '+y);
+	$('.map .popup .steps span').html(length);
 	$('.map .popup .cost span').html(cost);
 	
 	$('.map .popup').fadeIn(0);
