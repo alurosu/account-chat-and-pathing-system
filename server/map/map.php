@@ -24,7 +24,7 @@ if (!empty($_GET['session'])) {
 		for ($j=$y-$vision; $j<=$y+$vision; $j++) {
 			$cost = [];
 			for ($i=$x-$vision; $i<=$x+$vision; $i++) {
-				$cost[] = $i+$j;
+				$cost[] = 1;
 			}
 			$resultSet['map']['graph'][] = $cost;
 		}

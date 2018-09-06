@@ -160,6 +160,7 @@ body * {
 	display: inline-block;
     border-bottom: 2px solid #eee;
 	cursor: default;
+	color: #fff;
 }
 .menu .location .title {
 	font-size: 0.7em;
