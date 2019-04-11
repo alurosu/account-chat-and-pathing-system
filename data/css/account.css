@@ -12,6 +12,7 @@ body {
 	display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
 	
 	font-size: 20px;
 	
@@ -20,9 +21,24 @@ body {
 	color: #fff;
 	text-shadow: 1px 1px #000;
 }
+#logo {
+	margin: auto auto 0 auto;
+	text-align: center;
+}
+#logo img {
+	width: 50%;
+	margin-bottom: 1rem;
+}
+#copy {
+	font-size: .7rem;
+	margin: auto auto 1rem auto;
+    text-shadow: none;
+    color: #666;
+    font-weight: bold;
+}
 .content {
 	max-width: 1000px;
-	margin: auto;
+	margin: 0 auto auto auto;
 }
 .content > div {
 	display: none;
