@@ -8,8 +8,5 @@ A lot of scripts and stylings you find here can be used for different purposes. 
 - chat: send, receive, empty queue
 - profile: load stats, add/remove hp, add/remove energy, add xp
 - map: create, draw, find optimal path
-## Demo URL
-Latest development version at [amongdemons.com/](https://amongdemons.com/mmo)
-Test user: *admin* , pass: *admin*
 ## Contact
-If you have an interesting project and you want to work with me, send me a message at [alurosu.com/contact](https://alurosu.com/contact/)
+If you have an interesting project and you want to work with me, send me a message at [twitter.com/alurosu](https://twitter.com/alurosu)
