@@ -9,4 +9,4 @@ A lot of scripts and stylings you find here can be used for different purposes. 
 - profile: load stats, add/remove hp, add/remove energy, add xp
 - map: create, draw, find optimal path
 ## Contact
-If you have an interesting project and you want to work with me, send me a message at [twitter.com/alurosu](https://twitter.com/alurosu)
+If you have an interesting project and you want to work with me, send me a message at [x.com/alurosu](https://x.com/alurosu)
