@@ -1,5 +1,5 @@
 # The Game
-I am testing my programming skills in creating a game (at least that's what I hope it will be when it's finished).
+I am testing my programming skills in creating scripts for a game.
 
 A lot of scripts and stylings you find here can be used for different purposes. You can take any piece of code from this project as long as you give me a reference.
 ## Implemented Features
